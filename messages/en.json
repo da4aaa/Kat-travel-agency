@@ -1,0 +1,205 @@
+{
+  "nav": {
+    "skipToContent": "Skip to content",
+    "tours": "Tours",
+    "services": "Services",
+    "about": "About Kat",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "bookNow": "Book a Tour"
+  },
+  "hero": {
+    "headline": "Your Private Guide to the Real Mexico",
+    "subheadline": "Cenotes, Mayan ruins & jungle adventures — explored privately, your way, with Kat",
+    "cta": {
+      "book": "Book a Tour",
+      "whatsapp": "WhatsApp Me"
+    },
+    "scroll": "Explore"
+  },
+  "trust": {
+    "rating": {
+      "title": "5.0 Rating",
+      "subtitle": "Verified on ToursByLocals"
+    },
+    "languages": {
+      "title": "3 Languages",
+      "subtitle": "English · Spanish · Russian"
+    },
+    "private": {
+      "title": "Private Groups Only",
+      "subtitle": "Your group, no strangers"
+    },
+    "based": {
+      "title": "Playa del Carmen",
+      "subtitle": "Riviera Maya, Mexico"
+    }
+  },
+  "whyKat": {
+    "eyebrow": "Why Travel with Kat?",
+    "title": "Mexico the Way It Was Meant to Be Experienced",
+    "local": {
+      "title": "Local Knowledge",
+      "body": "I know the hidden cenotes, the quiet ruins, and the spots that never make it into guidebooks. No tourist traps — just the real Riviera Maya."
+    },
+    "private": {
+      "title": "100% Private",
+      "body": "Every tour is just your group. No strangers, no rushing to keep up with a crowd. We go at your pace, on your terms."
+    },
+    "languages": {
+      "title": "3 Languages",
+      "body": "I guide in English, Spanish, and Russian — so every member of your group feels comfortable, understood, and at home."
+    }
+  },
+  "featuredTours": {
+    "eyebrow": "Handpicked Experiences",
+    "title": "Tours Worth Waking Up Early For",
+    "cta": "See All Tours"
+  },
+  "gallery": {
+    "eyebrow": "Captured Moments",
+    "title": "Adventures in the Riviera Maya"
+  },
+  "tour": {
+    "badge": {
+      "duration": "Duration",
+      "group": "Group size"
+    },
+    "card": {
+      "from": "From",
+      "details": "See details →"
+    }
+  },
+  "reviews": {
+    "eyebrow": "What Travelers Say",
+    "title": "5 Stars Across the Board",
+    "source": "All reviews verified on ToursByLocals →"
+  },
+  "finalCta": {
+    "title": "Not Sure Which Tour Is Right for You?",
+    "body": "Tell me when you're arriving, how many people, and what excites you — I'll design the perfect experience around your group.",
+    "cta": "Let's Chat on WhatsApp"
+  },
+  "tours": {
+    "title": "Explore with Kat",
+    "subtitle": "Every tour is private, every experience is yours. Choose your adventure below or ask me to build something custom.",
+    "filters": {
+      "all": "All Tours",
+      "cenotes": "Cenotes & Snorkeling",
+      "ruins": "Mayan Ruins",
+      "jungle": "Jungle & Wildlife",
+      "culture": "Culture & Food"
+    }
+  },
+  "services": {
+    "title": "All the Details You Need to Know",
+    "subtitle": "What's included, how we run tours, and everything that makes this experience smooth.",
+    "private": {
+      "title": "100% Private Tours",
+      "body": "No strangers, no crowds. Every tour is exclusively your group — family, friends, whoever you bring. We move at your pace."
+    },
+    "transport": {
+      "title": "Transportation Included",
+      "body": "I pick you up and drop you off at your hotel or resort (Playa del Carmen, Tulum, Puerto Aventuras, Akumal). Air-conditioned comfort all the way."
+    },
+    "languages": {
+      "title": "English, Spanish & Russian",
+      "body": "I guide fluently in all three languages. If your group speaks different languages, no problem — everyone gets the full story."
+    },
+    "custom": {
+      "title": "Custom Itineraries",
+      "body": "Want to mix cenotes with ruins? Prefer more wildlife time and less history? Let me know what excites you and I'll build the perfect day around it."
+    }
+  },
+  "faq": {
+    "title": "Common Questions",
+    "q1": {
+      "question": "How far in advance should I book?",
+      "answer": "I recommend booking at least a week ahead, especially in high season (December–April). But if I'm available last-minute, we'll make it happen."
+    },
+    "q2": {
+      "question": "Do you provide snorkeling gear?",
+      "answer": "Yes! On any tour that includes cenotes or snorkeling, I bring masks, fins, and life jackets for all ages."
+    },
+    "q3": {
+      "question": "Can you pick us up from our resort?",
+      "answer": "Absolutely. I pick up from Playa del Carmen, Tulum, Puerto Aventuras, and Akumal. Pickup from Cancún may have an extra transport fee — just ask."
+    },
+    "q4": {
+      "question": "What if we have young kids?",
+      "answer": "Kids are welcome! Some cenotes are shallow and calm, perfect for little ones. I'll recommend tours that fit your family's comfort level."
+    },
+    "q5": {
+      "question": "Can we customize a tour?",
+      "answer": "Yes! Tell me what you're interested in and I'll design a custom itinerary. Mix ruins, cenotes, wildlife, culture — whatever you want to see."
+    },
+    "q6": {
+      "question": "Is lunch included?",
+      "answer": "Depends on the tour. Some include a local meal; others don't. I'll always point you toward great spots if it's not included."
+    }
+  },
+  "about": {
+    "title": "Hi, I'm Kat",
+    "intro": "I've been guiding private tours in the Riviera Maya for over 8 years. I grew up exploring cenotes, learning Mayan history, and falling in love with this jungle paradise — and now I get to share it with travelers from around the world.",
+    "why": "Why I Do This",
+    "whyBody": "Most tours feel rushed, overcrowded, and impersonal. I wanted to create the opposite: small, private experiences where you actually connect with the place. No megaphones, no tourist traps, just real Mexico.",
+    "experience": "What I Bring",
+    "experienceBody": "Fluent in English, Spanish, and Russian. Certified guide with deep knowledge of Mayan archaeology, local ecology, and the best hidden spots the Riviera Maya has to offer.",
+    "promise": "My Promise",
+    "promiseBody": "You'll never feel rushed. You'll never be just another face in a crowd. Every tour I lead is built around your group's pace, interests, and energy. This is your day — I'm just here to make it unforgettable.",
+    "reviewsLink": "See all reviews on ToursByLocals →"
+  },
+  "contact": {
+    "title": "Let's Plan Your Adventure",
+    "subtitle": "Tell me what you're thinking and I'll get back to you within 24 hours — usually faster.",
+    "chooseMethod": "Contact Me",
+    "instant": "Instant response",
+    "emailOption": "Within 24 hours",
+    "whatsapp": {
+      "title": "WhatsApp",
+      "body": "Fastest way to reach me. I reply within the hour most days.",
+      "cta": "Message me on WhatsApp"
+    },
+    "email": {
+      "title": "Email",
+      "body": "Prefer email? I check daily and respond within 24 hours."
+    },
+    "hours": {
+      "title": "Response Time",
+      "body": "I usually reply within 1–2 hours during the day (Mexico time, GMT-5)."
+    },
+    "location": {
+      "title": "Based In",
+      "body": "Playa del Carmen, Quintana Roo, Mexico"
+    }
+  },
+  "form": {
+    "name": "Your Name",
+    "email": "Your Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Thanks! I'll get back to you soon.",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "subjectRequired": "Subject is required",
+    "messageRequired": "Message is required"
+  },
+  "footer": {
+    "tagline": "Private tours in Playa del Carmen, Mexico"
+  },
+  "tourDetail": {
+    "overview": "Overview",
+    "included": "What's Included",
+    "important": "Important Info",
+    "highlights": "Highlights",
+    "notIncluded": "Not Included",
+    "gallery": "Gallery",
+    "transportIncluded": "Transportation to/from your hotel is always included (Playa del Carmen, Tulum, Puerto Aventuras, Akumal).",
+    "bookThis": "Book This Tour",
+    "askWhatsapp": "Ask a Question (WhatsApp)",
+    "related": "Other Tours You Might Like"
+  }
+}
