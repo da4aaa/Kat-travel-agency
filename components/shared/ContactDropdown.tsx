@@ -7,7 +7,7 @@ import {Button} from './Button';
 
 interface ContactDropdownProps {
   tourName?: string;
-  variant?: 'default' | 'outline';
+  variant?: 'primary' | 'outline' | 'ghost';
   className?: string;
   size?: 'sm' | 'md' | 'lg';
 }
@@ -17,7 +17,7 @@ const EMAIL = 'kat@[yourdomain].com';
 
 export function ContactDropdown({
   tourName,
-  variant = 'default',
+  variant = 'primary',
   className = '',
   size = 'md'
 }: ContactDropdownProps) {
