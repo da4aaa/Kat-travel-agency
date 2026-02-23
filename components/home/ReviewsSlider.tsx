@@ -1,8 +1,9 @@
 'use client';
 
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'framer-motion';
+import {ChevronLeft, ChevronRight} from 'lucide-react';
 
 import {reviews} from '@/data/reviews';
 import {ReviewCard} from '@/components/shared/ReviewCard';
@@ -11,6 +12,42 @@ export function ReviewsSlider() {
   const t = useTranslations();
   const reduced = useReducedMotion();
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollButtons = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  };
+
+  const scrollLeft = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({left: -420, behavior: 'smooth'});
+  };
+
+  const scrollRight = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    el.scrollBy({left: 420, behavior: 'smooth'});
+  };
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    updateScrollButtons();
+    el.addEventListener('scroll', updateScrollButtons);
+    window.addEventListener('resize', updateScrollButtons);
+
+    return () => {
+      el.removeEventListener('scroll', updateScrollButtons);
+      window.removeEventListener('resize', updateScrollButtons);
+    };
+  }, []);
 
   useEffect(() => {
     if (reduced) return;
@@ -49,39 +86,58 @@ export function ReviewsSlider() {
         </motion.div>
       </div>
 
-      {/* Full Width Scrollable Gallery */}
-      <div
-        ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto px-6 md:px-12 scroll-smooth snap-x snap-mandatory pb-4"
-        style={{
-          scrollbarWidth: 'thin',
-          scrollbarColor: 'rgba(6, 182, 212, 0.3) transparent'
-        }}
-      >
-        {reviews.map((r, index) => (
-          <motion.div
-            key={`${r.name}-${r.date}`}
-            className="min-w-[320px] sm:min-w-[380px] md:min-w-[420px] snap-start"
-            initial={reduced ? {opacity: 1} : {opacity: 0, x: 20}}
-            whileInView={{opacity: 1, x: 0}}
-            viewport={{once: true, margin: '-50px'}}
-            transition={{duration: 0.5, delay: index * 0.1}}
-          >
-            <ReviewCard review={r} />
-          </motion.div>
-        ))}
-      </div>
+      {/* Scrollable Gallery with Gradient Fades and Arrows */}
+      <div className="relative">
+        {/* Left Gradient Fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-surface to-transparent z-10 pointer-events-none" />
+        
+        {/* Right Gradient Fade */}
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-surface to-transparent z-10 pointer-events-none" />
 
-      {/* Source Link - Centered */}
-      <div className="text-center mt-8 px-6">
-        <a
-          href="https://www.toursbylocals.com/tour-guides/mexico/playa-del-carmen/guide-profile/kat-b-664d223396689af34337a5f5"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-accent hover:text-accent/80 transition-colors"
+        {/* Left Arrow */}
+        {canScrollLeft && (
+          <button
+            onClick={scrollLeft}
+            aria-label="Scroll left"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 place-items-center rounded-full bg-white border border-text/10 text-text hover:bg-accent hover:text-white hover:border-accent shadow-lg transition-all"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+        )}
+
+        {/* Right Arrow */}
+        {canScrollRight && (
+          <button
+            onClick={scrollRight}
+            aria-label="Scroll right"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 place-items-center rounded-full bg-white border border-text/10 text-text hover:bg-accent hover:text-white hover:border-accent shadow-lg transition-all"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        )}
+
+        {/* Reviews Container - Hidden Scrollbar */}
+        <div
+          ref={scrollerRef}
+          className="flex gap-6 overflow-x-auto px-6 md:px-12 scroll-smooth snap-x snap-mandatory"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+          }}
         >
-          {t('reviews.source')}
-        </a>
+          {reviews.map((r, index) => (
+            <motion.div
+              key={`${r.name}-${r.date}`}
+              className="min-w-[320px] sm:min-w-[380px] md:min-w-[420px] snap-start"
+              initial={reduced ? {opacity: 1} : {opacity: 0, x: 20}}
+              whileInView={{opacity: 1, x: 0}}
+              viewport={{once: true, margin: '-50px'}}
+              transition={{duration: 0.5, delay: index * 0.1}}
+            >
+              <ReviewCard review={r} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

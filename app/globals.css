@@ -56,3 +56,8 @@ p {
 ::selection {
   background: color-mix(in srgb, var(--color-accent-light) 35%, white);
 }
+
+/* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
