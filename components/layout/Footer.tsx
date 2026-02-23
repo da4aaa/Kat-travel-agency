@@ -8,7 +8,7 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="mt-20 border-t border-text/10 bg-surface">
+    <footer className="border-t border-text/10 bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
