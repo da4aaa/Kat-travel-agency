@@ -21,7 +21,7 @@ export default function AboutPage() {
   const t = useTranslations();
 
   return (
-    <div className="pt-24 mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <div className="pt-48 pb-14 md:pb-20 mx-auto max-w-6xl px-6">
       <AnimatedSection className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="relative aspect-4/5 overflow-hidden rounded-3xl border border-text/10 bg-surface">
           {/* TODO: Replace with real Kat photo */}

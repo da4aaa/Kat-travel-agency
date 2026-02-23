@@ -21,7 +21,7 @@ function NavLink({
     <Link
       href={href}
       onClick={onNavigate}
-      className="text-sm text-text/80 hover:text-text transition-colors"
+      className="text-sm text-text/80 hover:text-text transition-colors px-3 py-1.5 rounded-full hover:bg-white"
     >
       {children}
     </Link>

@@ -20,7 +20,7 @@ export default function ContactPage() {
   const t = useTranslations();
 
   return (
-    <div className="pt-24 mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <div className="pt-48 pb-14 md:pb-20 mx-auto max-w-6xl px-6">
       <header className="max-w-2xl">
         <h1 className="text-4xl leading-[1.02] md:text-5xl">{t('contact.title')}</h1>
         <p className="mt-4 text-base leading-7 text-text-muted">

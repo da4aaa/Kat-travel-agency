@@ -87,28 +87,58 @@ export function FloatingContactButton() {
         type="button"
         onClick={() => setOpen(!open)}
         aria-label="Contact options"
-        className="group relative grid h-14 w-14 place-items-center rounded-full bg-accent text-white shadow-[0_18px_60px_rgba(16,101,205,0.22)]"
+        className="group relative grid h-14 w-14 place-items-center rounded-full bg-[#FF8C42] text-white shadow-[0_18px_60px_rgba(255,140,66,0.35)]"
         initial={false}
         animate={
           reduced
             ? {opacity: 1}
             : {
                 opacity: 1,
-                scale: [1, 1.03, 1]
+                scale: [1, 1.05, 1],
+                rotate: [0, -8, 8, -8, 0]
               }
         }
         transition={
           reduced
             ? undefined
             : {
-                duration: 2.2,
-                repeat: Infinity,
-                ease: 'easeInOut'
+                scale: {
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                },
+                rotate: {
+                  duration: 0.6,
+                  repeat: Infinity,
+                  repeatDelay: 3,
+                  ease: 'easeInOut'
+                }
               }
         }
+        whileHover={reduced ? undefined : {scale: 1.1, rotate: 5}}
+        whileTap={{scale: 0.95}}
       >
-        <span className="pointer-events-none absolute -inset-2 rounded-full bg-accent-light/15 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
-        <MessageCircle className="relative h-6 w-6" aria-hidden="true" />
+        <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#FF8C42]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+        <motion.div
+          animate={
+            reduced
+              ? {}
+              : {
+                  y: [0, -2, 0]
+                }
+          }
+          transition={
+            reduced
+              ? undefined
+              : {
+                  duration: 1.8,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }
+          }
+        >
+          <MessageCircle className="relative h-6 w-6" aria-hidden="true" />
+        </motion.div>
       </motion.button>
     </div>
   );
