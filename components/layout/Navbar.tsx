@@ -6,7 +6,6 @@ import {Menu, X} from 'lucide-react';
 
 import {Link, usePathname} from '@/i18n/navigation';
 
-import {LanguageSwitcher} from './LanguageSwitcher';
 import {Button} from '@/components/shared/Button';
 
 function NavLink({
@@ -65,19 +64,19 @@ export function Navbar() {
 
       <div
         className={[
-          'mx-auto max-w-6xl px-6',
+          'mx-auto max-w-7xl px-6',
           'transition-[background,backdrop-filter,border-color,box-shadow] duration-300'
         ].join(' ')}
       >
         <div
           className={[
-            'mt-4 rounded-2xl border',
+            'mt-9 rounded-2xl border',
             scrolled
               ? 'bg-bg/80 backdrop-blur-md border-text/10 shadow-[0_16px_40px_rgba(28,28,26,0.10)]'
               : 'bg-transparent border-transparent'
           ].join(' ')}
         >
-          <div className="flex items-center justify-between px-4 py-3">
+          <div className="flex items-center justify-between px-6 py-3">
             <div className="flex items-center gap-4">
               <Link
                 href="/"
@@ -96,10 +95,6 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="hidden md:block">
-                <LanguageSwitcher />
-              </div>
-
               <Link href="/contact" className="hidden md:block">
                 <Button size="md">{t('nav.bookNow')}</Button>
               </Link>
@@ -117,15 +112,8 @@ export function Navbar() {
           </div>
 
           {open && (
-            <div className="md:hidden px-4 pb-4">
+            <div className="md:hidden px-6 pb-4">
               <div className="flex flex-col gap-3 rounded-xl bg-white/70 backdrop-blur-sm border border-text/10 p-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs uppercase tracking-wider text-text-muted">
-                    {t('trust.languages.title')}
-                  </span>
-                  <LanguageSwitcher />
-                </div>
-                <div className="h-px bg-text/10" />
                 <NavLink href="/tours" onNavigate={() => setOpen(false)}>
                   {t('nav.tours')}
                 </NavLink>

@@ -5,7 +5,7 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
-import {WhatsAppButton} from '@/components/layout/WhatsAppButton';
+import {FloatingContactButton} from '@/components/layout/FloatingContactButton';
 import {PageTransition} from '@/components/shared/PageTransition';
 
 export function generateStaticParams() {
@@ -35,7 +35,7 @@ export default async function LocaleLayout({
           </main>
         </PageTransition>
         <Footer />
-        <WhatsAppButton />
+        <FloatingContactButton />
       </div>
     </NextIntlClientProvider>
   );
