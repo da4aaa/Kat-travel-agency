@@ -30,7 +30,7 @@ export function WhyKat() {
     <AnimatedSection className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} />
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+      <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         {/* Image Section - Upload your photo to public/kat-photo.jpg */}
         <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-text/10 bg-surface shadow-card">
           <Image
@@ -57,13 +57,15 @@ export function WhyKat() {
             return (
               <div
                 key={c.title}
-                className="rounded-3xl border border-text/10 bg-white/65 backdrop-blur-sm p-7 shadow-[0_16px_40px_rgba(28,28,26,0.08)]"
+                className="rounded-3xl border border-text/10 backdrop-blur-sm p-7"
               >
-                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-accent/10 text-accent">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+                <div className="flex items-center gap-4">
+                  <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-accent/10 text-accent">
+                    <Icon className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <h3 className="text-xl leading-tight">{c.title}</h3>
                 </div>
-                <h3 className="mt-5 text-xl leading-tight">{c.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-text-muted">{c.body}</p>
+                <p className="mt-4 text-sm leading-6 text-text-muted">{c.body}</p>
               </div>
             );
           })}
