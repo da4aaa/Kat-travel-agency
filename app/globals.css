@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+html { scroll-behavior: smooth; }
+
 :root {
   /* Brand palette - Caribbean Turquoise Theme */
   --color-bg: #f0f9ff; /* light cyan/sky blue */

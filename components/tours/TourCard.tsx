@@ -26,7 +26,6 @@ export function TourCard({tour}: {tour: Tour}) {
                 'linear-gradient(180deg, rgba(28,28,26,0.05) 0%, rgba(28,28,26,0.62) 100%)'
             }}
           />
-
           <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs text-text backdrop-blur-sm border border-text/10">
             <span className="text-text-muted">{t('tour.badge.duration')}:</span>
             <span className="font-medium">{tour.duration}</span>
@@ -54,4 +53,3 @@ export function TourCard({tour}: {tour: Tour}) {
     </article>
   );
 }
-

@@ -7,8 +7,8 @@ export function FinalCTA() {
   const t = useTranslations();
 
   return (
-    <section className="bg-surface border-t border-text/10">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+    <section>
+      <div className="mx-auto max-w-6xl px-6 pb-16 md:pb-20">
         <div
           className="rounded-3xl border border-text/10 bg-white/65 backdrop-blur-sm p-10 md:p-14"
           style={{

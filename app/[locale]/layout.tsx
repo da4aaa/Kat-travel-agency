@@ -7,6 +7,7 @@ import {Navbar} from '@/components/layout/Navbar';
 import {Footer} from '@/components/layout/Footer';
 import {FloatingContactButton} from '@/components/layout/FloatingContactButton';
 import {PageTransition} from '@/components/shared/PageTransition';
+import {BookingModalProvider} from '@/components/shared/BookingModal';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -27,16 +28,18 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <div lang={params.locale} className="min-h-dvh bg-bg text-text">
-        <Navbar />
-        <PageTransition>
-          <main id="content">
-            {children}
-          </main>
-        </PageTransition>
-        <Footer />
-        <FloatingContactButton />
-      </div>
+      <BookingModalProvider>
+        <div lang={params.locale} className="min-h-dvh bg-bg text-text">
+          <Navbar />
+          <PageTransition>
+            <main id="content">
+              {children}
+            </main>
+          </PageTransition>
+          <Footer />
+          <FloatingContactButton />
+        </div>
+      </BookingModalProvider>
     </NextIntlClientProvider>
   );
 }

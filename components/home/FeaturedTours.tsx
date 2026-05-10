@@ -9,7 +9,7 @@ import {Button} from '@/components/shared/Button';
 
 export function FeaturedTours() {
   const t = useTranslations();
-  const featured = tours.slice(0, 3);
+  const featured = tours;
 
   return (
     <AnimatedSection className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -18,11 +18,6 @@ export function FeaturedTours() {
           eyebrow={t('featuredTours.eyebrow')}
           title={t('featuredTours.title')}
         />
-        <Link href="/tours" className="w-full md:w-auto">
-          <Button variant="outline" className="w-full md:w-auto">
-            {t('featuredTours.cta')}
-          </Button>
-        </Link>
       </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">

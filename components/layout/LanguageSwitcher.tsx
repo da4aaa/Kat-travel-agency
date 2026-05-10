@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
 
   return (
     <div
-      className="inline-flex rounded-full bg-white/70 p-1 backdrop-blur-sm border border-text/10"
+      className="inline-flex rounded-full bg-white/60 p-1 backdrop-blur-xl border border-white/40 shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
       aria-label="Language switcher"
       role="group"
     >

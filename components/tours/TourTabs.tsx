@@ -47,6 +47,9 @@ export function TourTabs({tour}: {tour: Tour}) {
 
       {active === 'overview' && (
         <div className="mt-8">
+          {tour.description && (
+            <p className="mb-8 text-base leading-7 text-text-muted">{tour.description}</p>
+          )}
           <h3 className="text-xl">{t('tourDetail.highlights')}</h3>
           <ul className="mt-4 grid gap-2 text-sm text-text-muted">
             {tour.highlights.map((h) => (

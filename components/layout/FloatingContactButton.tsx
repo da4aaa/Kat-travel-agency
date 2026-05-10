@@ -47,7 +47,7 @@ export function FloatingContactButton() {
         <motion.div
           initial={{opacity: 0, y: 10}}
           animate={{opacity: 1, y: 0}}
-          className="absolute bottom-full right-0 mb-3 w-64 rounded-2xl border border-text/10 bg-white shadow-card overflow-hidden"
+          className="absolute bottom-full right-0 mb-3 w-64 rounded-2xl border border-white/40 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.14)] overflow-hidden"
         >
           <a
             href={getWhatsAppUrl()}

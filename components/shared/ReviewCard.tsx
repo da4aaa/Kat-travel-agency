@@ -23,7 +23,14 @@ export function ReviewCard({review}: {review: Review}) {
       <p className="mt-4 text-sm leading-6 text-text/90">“{review.quote}”</p>
 
       <div className="mt-5 text-xs text-text-muted">
-        Source: {review.source}
+        <a
+          href={review.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-accent transition-colors underline underline-offset-2"
+        >
+          {review.source}
+        </a>
       </div>
     </article>
   );

@@ -5,23 +5,30 @@ import {useLocale, useTranslations} from 'next-intl';
 import {Menu, X} from 'lucide-react';
 
 import {Link, usePathname} from '@/i18n/navigation';
-
 import {Button} from '@/components/shared/Button';
+import {useBookingModal} from '@/components/shared/BookingModal';
 
 function NavLink({
   href,
   children,
-  onNavigate
+  onNavigate,
+  transparent
 }: {
   href: string;
   children: React.ReactNode;
   onNavigate?: () => void;
+  transparent?: boolean;
 }) {
   return (
     <Link
       href={href}
       onClick={onNavigate}
-      className="text-sm text-text/80 hover:text-text transition-colors px-3 py-1.5 rounded-full hover:bg-white"
+      className={[
+        'text-sm transition-colors duration-300 px-3 py-1.5 rounded-full',
+        transparent
+          ? 'text-white/90 hover:text-white hover:bg-white/15'
+          : 'text-text/80 hover:text-text hover:bg-white/60'
+      ].join(' ')}
     >
       {children}
     </Link>
@@ -30,28 +37,32 @@ function NavLink({
 
 export function Navbar() {
   const t = useTranslations();
-  const locale = useLocale();
   const pathname = usePathname();
 
-  const isHome = useMemo(() => pathname === `/${locale}`, [locale, pathname]);
+  // next-intl's usePathname strips the locale — home is always '/'
+  const isHome = useMemo(() => pathname === '/', [pathname]);
 
-  const [scrolled, setScrolled] = useState(!isHome);
+  const {open: openModal} = useBookingModal();
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    setScrolled(!isHome);
     setOpen(false);
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+    setScrolled(window.scrollY > 40);
   }, [isHome, pathname]);
 
   useEffect(() => {
-    const onScroll = () => {
-      if (!isHome) return;
-      setScrolled(window.scrollY > 18);
-    };
-    onScroll();
+    if (!isHome) return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, {passive: true});
     return () => window.removeEventListener('scroll', onScroll);
   }, [isHome]);
+
+  const transparent = isHome && !scrolled;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
@@ -64,45 +75,59 @@ export function Navbar() {
 
       <div
         className={[
-          'mx-auto max-w-7xl px-6',
-          'transition-[background,backdrop-filter,border-color,box-shadow] duration-300'
+          'mx-auto max-w-7xl px-6 transition-all duration-300',
+          scrolled ? 'pt-3' : 'pt-5'
         ].join(' ')}
       >
         <div
           className={[
-            'mt-9 rounded-2xl border',
+            'rounded-2xl border transition-all duration-300',
             scrolled
-              ? 'bg-bg/80 backdrop-blur-md border-text/10 shadow-[0_16px_40px_rgba(28,28,26,0.10)]'
+              ? 'bg-white/70 backdrop-blur-xl border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.10)]'
               : 'bg-transparent border-transparent'
           ].join(' ')}
         >
           <div className="flex items-center justify-between px-6 py-3">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <Link
                 href="/"
-                className="font-serif text-xl tracking-tight text-text"
+                className={[
+                  'font-serif text-xl tracking-tight transition-colors duration-300',
+                  transparent ? 'text-white' : 'text-text'
+                ].join(' ')}
                 aria-label="Kat B. Home"
               >
                 Kat B.
               </Link>
-              <nav className="hidden md:flex items-center gap-5">
-                <NavLink href="/tours">{t('nav.tours')}</NavLink>
-                <NavLink href="/services">{t('nav.services')}</NavLink>
-                <NavLink href="/about">{t('nav.about')}</NavLink>
-                <NavLink href="/#gallery">{t('nav.gallery')}</NavLink>
-                <NavLink href="/contact">{t('nav.contact')}</NavLink>
+
+              <nav className="hidden md:flex items-center gap-1">
+                <NavLink href="#tours" transparent={transparent}>{t('nav.tours')}</NavLink>
+                <NavLink href="#about" transparent={transparent}>{t('nav.about')}</NavLink>
+                <NavLink href="#gallery" transparent={transparent}>{t('nav.gallery')}</NavLink>
+                <NavLink href="#contact" transparent={transparent}>{t('nav.contact')}</NavLink>
               </nav>
             </div>
 
             <div className="flex items-center gap-3">
-              <Link href="/contact" className="hidden md:block">
-                <Button size="md">{t('nav.bookNow')}</Button>
-              </Link>
+              <button onClick={() => openModal()} className="hidden md:block">
+                {transparent ? (
+                  <span className="inline-block rounded-full border border-white/60 px-5 py-2 text-sm text-white transition-colors hover:bg-white/15 cursor-pointer">
+                    {t('nav.bookNow')}
+                  </span>
+                ) : (
+                  <Button size="md">{t('nav.bookNow')}</Button>
+                )}
+              </button>
 
               <button
                 type="button"
-                className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-text/10 bg-white/70 backdrop-blur-sm text-text hover:bg-surface transition-colors"
-                onClick={() => setOpen((v) => !v)}
+                className={[
+                  'md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300',
+                  transparent
+                    ? 'border-white/40 text-white hover:bg-white/15'
+                    : 'border-white/40 bg-white/70 backdrop-blur-md text-text hover:bg-white/90'
+                ].join(' ')}
+                onClick={() => setOpen(v => !v)}
                 aria-label={open ? 'Close menu' : 'Open menu'}
                 aria-expanded={open}
               >
@@ -113,25 +138,14 @@ export function Navbar() {
 
           {open && (
             <div className="md:hidden px-6 pb-4">
-              <div className="flex flex-col gap-3 rounded-xl bg-white/70 backdrop-blur-sm border border-text/10 p-4">
-                <NavLink href="/tours" onNavigate={() => setOpen(false)}>
-                  {t('nav.tours')}
-                </NavLink>
-                <NavLink href="/services" onNavigate={() => setOpen(false)}>
-                  {t('nav.services')}
-                </NavLink>
-                <NavLink href="/about" onNavigate={() => setOpen(false)}>
-                  {t('nav.about')}
-                </NavLink>
-                <NavLink href="/#gallery" onNavigate={() => setOpen(false)}>
-                  {t('nav.gallery')}
-                </NavLink>
-                <NavLink href="/contact" onNavigate={() => setOpen(false)}>
-                  {t('nav.contact')}
-                </NavLink>
-                <Link href="/contact" onClick={() => setOpen(false)}>
+              <div className="flex flex-col gap-2 rounded-xl bg-white/80 backdrop-blur-xl border border-white/40 p-4">
+                <NavLink href="#tours" onNavigate={() => setOpen(false)}>{t('nav.tours')}</NavLink>
+                <NavLink href="#about" onNavigate={() => setOpen(false)}>{t('nav.about')}</NavLink>
+                <NavLink href="#gallery" onNavigate={() => setOpen(false)}>{t('nav.gallery')}</NavLink>
+                <NavLink href="#contact" onNavigate={() => setOpen(false)}>{t('nav.contact')}</NavLink>
+                <button onClick={() => { setOpen(false); openModal(); }} className="w-full mt-1">
                   <Button className="w-full">{t('nav.bookNow')}</Button>
-                </Link>
+                </button>
               </div>
             </div>
           )}
@@ -140,4 +154,3 @@ export function Navbar() {
     </header>
   );
 }
-

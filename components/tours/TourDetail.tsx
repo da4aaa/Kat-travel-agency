@@ -3,8 +3,7 @@ import {useTranslations} from 'next-intl';
 import {MapPin, Users, Clock, Car} from 'lucide-react';
 
 import type {Tour} from '@/data/tours';
-import {Link} from '@/i18n/navigation';
-import {Button} from '@/components/shared/Button';
+import {BookTourButton} from '@/components/shared/BookTourButton';
 import {ContactDropdown} from '@/components/shared/ContactDropdown';
 import {TourTabs} from './TourTabs';
 import {TourCard} from './TourCard';
@@ -129,9 +128,7 @@ export function TourDetail({
             </div>
             <div className="flex gap-3">
               <ContactDropdown tourName={tour.name} variant="outline" className="hidden md:flex bg-white/70 backdrop-blur-sm" />
-              <Link href="/contact">
-                <Button>{t('tourDetail.bookThis')}</Button>
-              </Link>
+              <BookTourButton label={t('tourDetail.bookThis')} />
             </div>
           </div>
         </div>

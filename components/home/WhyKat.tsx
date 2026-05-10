@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
-import {Lock, Waves, Globe} from 'lucide-react';
 
 import {AnimatedSection} from '@/components/shared/AnimatedSection';
 import {SectionHeading} from '@/components/shared/SectionHeading';
@@ -8,70 +7,44 @@ import {SectionHeading} from '@/components/shared/SectionHeading';
 export function WhyKat() {
   const t = useTranslations();
 
-  const cards = [
-    {
-      icon: Waves,
-      title: t('whyKat.local.title'),
-      body: t('whyKat.local.body')
-    },
-    {
-      icon: Lock,
-      title: t('whyKat.private.title'),
-      body: t('whyKat.private.body')
-    },
-    {
-      icon: Globe,
-      title: t('whyKat.languages.title'),
-      body: t('whyKat.languages.body')
-    }
+  const blocks = [
+    { title: t('whyKat.local.title'), body: t('whyKat.local.body') },
+    { title: t('whyKat.private.title'), body: t('whyKat.private.body') },
+    { title: t('whyKat.languages.title'), body: t('whyKat.languages.body') },
   ];
 
+  const TextBlock = ({ title, body }: { title: string; body: string }) => (
+    <div>
+      <h3 className="text-lg font-medium leading-snug mb-3 text-white">{title}</h3>
+      <p className="text-sm leading-7" style={{color: '#ffffff'}}>{body}</p>
+    </div>
+  );
+
   return (
-    <AnimatedSection className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-      <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} />
-
-      <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        {/* Image Section - Upload your photo to public/kat-photo.jpg */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-text/10 bg-surface shadow-card">
-          <Image
-            src="/kat-photo.jpg"
-            alt="Kat B. - Private Tour Guide in Playa del Carmen"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 40vw"
-          />
-          <div
-            className="absolute inset-0"
-            aria-hidden="true"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(240,249,255,0.00) 0%, rgba(6,182,212,0.15) 100%)'
-            }}
-          />
-        </div>
-
-        {/* Cards Section */}
-        <div className="grid gap-6">
-          {cards.map((c) => {
-            const Icon = c.icon;
-            return (
-              <div
-                key={c.title}
-                className="rounded-3xl border border-text/10 backdrop-blur-sm p-7"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-accent/10 text-accent">
-                    <Icon className="h-6 w-6" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-xl leading-tight">{c.title}</h3>
-                </div>
-                <p className="mt-4 text-sm leading-6 text-text-muted">{c.body}</p>
-              </div>
-            );
-          })}
+    <AnimatedSection className="relative overflow-hidden min-h-[600px]">
+      <Image
+        src="/kat-guide.jpg"
+        alt="Kat B. — private tour guide at Mayan ruins in the Riviera Maya"
+        fill
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+      {/* Gradient from right only — left stays clear */}
+      <div
+        className="absolute inset-0"
+        style={{background: 'linear-gradient(to left, rgba(7,30,50,0.95) 0%, rgba(7,30,50,0.88) 30%, rgba(7,30,50,0.5) 55%, transparent 75%)'}}
+      />
+      {/* Content pinned to right half */}
+      <div className="relative flex h-full min-h-[600px] items-center">
+        <div className="ml-auto w-full max-w-xl px-10 py-16 md:py-24">
+          <div className="[&_h2]:text-white [&_span]:text-white">
+            <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} />
+          </div>
+          <div className="mt-10 grid gap-8">
+            {blocks.map(b => <TextBlock key={b.title} title={b.title} body={b.body} />)}
+          </div>
         </div>
       </div>
     </AnimatedSection>
   );
 }
-

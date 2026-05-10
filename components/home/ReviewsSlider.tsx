@@ -68,9 +68,9 @@ export function ReviewsSlider() {
   }, [reduced]);
 
   return (
-    <section className="bg-surface py-16 md:py-24 overflow-hidden">
+    <section className="bg-surface py-8 md:py-12 overflow-hidden">
       {/* Section Header - Centered */}
-      <div className="mx-auto max-w-6xl px-6 text-center mb-12">
+      <div className="mx-auto max-w-6xl px-6 text-center mb-6">
         <motion.div
           initial={reduced ? {opacity: 1} : {opacity: 0, y: 20}}
           whileInView={{opacity: 1, y: 0}}

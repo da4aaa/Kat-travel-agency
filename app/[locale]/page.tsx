@@ -1,15 +1,15 @@
 import {Hero} from '@/components/home/Hero';
-import {TrustBar} from '@/components/home/TrustBar';
+import {ReviewsSlider} from '@/components/home/ReviewsSlider';
 import {WhyKat} from '@/components/home/WhyKat';
 import {FeaturedTours} from '@/components/home/FeaturedTours';
-import {Gallery} from '@/components/home/Gallery';
-import {ReviewsSlider} from '@/components/home/ReviewsSlider';
 import {FinalCTA} from '@/components/home/FinalCTA';
+import {Gallery} from '@/components/home/Gallery';
+import {ContactStrip} from '@/components/home/ContactStrip';
 
 export const metadata = {
   title: 'Kat B. | Private Tour Guide in Playa del Carmen, Mexico',
   description:
-    "Private tours in Playa del Carmen, Tulum, Cobá & the Riviera Maya. Cenotes, Mayan ruins, jungle adventures. English, Spanish & Russian-speaking guide.",
+    'Private tours in Playa del Carmen, Tulum, Cobá & the Riviera Maya. Cenotes, Mayan ruins, jungle adventures. English, Spanish & Russian-speaking guide.',
   keywords: [
     'private tour guide playa del carmen',
     'tulum tour guide',
@@ -30,11 +30,11 @@ export default function HomePage() {
     <>
       <Hero />
       <ReviewsSlider />
-      <WhyKat />
-      <FeaturedTours />
-      <Gallery />
+      <section id="about"><WhyKat /></section>
+      <section id="tours"><FeaturedTours /></section>
       <FinalCTA />
+      <Gallery />
+      <ContactStrip />
     </>
   );
 }
-

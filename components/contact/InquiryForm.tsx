@@ -1,181 +1,181 @@
 'use client';
 
-import {useMemo, useState} from 'react';
+import {useState} from 'react';
 import {useForm} from 'react-hook-form';
-import {useLocale, useTranslations} from 'next-intl';
+import {useTranslations} from 'next-intl';
+import {useSearchParams} from 'next/navigation';
 
-type PreferredLanguage = 'en' | 'es' | 'ru';
-type Interest = 'history' | 'cenotes' | 'adventure' | 'custom';
+import {tours} from '@/data/tours';
 
 type FormValues = {
   fullName: string;
   email: string;
-  preferredLanguage: PreferredLanguage;
-  travelFrom?: string;
-  travelTo?: string;
+  dateFrom: string;
+  dateTo?: string;
   groupSize: number;
-  interests: Interest[];
-  message: string;
+  accommodation?: string;
+  tour?: string;
+  message?: string;
 };
+
+const inputCls = 'w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40 transition-shadow';
+const labelCls = 'block text-sm font-medium text-text mb-2';
+const errorCls = 'mt-1 text-xs text-red-500';
 
 export function InquiryForm() {
   const t = useTranslations();
-  const locale = useLocale() as PreferredLanguage;
-  const [submitState, setSubmitState] = useState<
-    'idle' | 'submitting' | 'success'
-  >('idle');
+  const searchParams = useSearchParams();
+  const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const {
-    register,
-    handleSubmit,
-    formState: {errors},
-    reset
-  } = useForm<FormValues>({
+  const prefillDate = searchParams.get('date') ?? undefined;
+  const prefillGuests = searchParams.get('guests');
+  const prefillTour = searchParams.get('tour') ?? undefined;
+
+  const {register, handleSubmit, formState: {errors}, reset} = useForm<FormValues>({
     defaultValues: {
-      preferredLanguage: locale,
-      interests: [],
-      groupSize: 2
+      groupSize: prefillGuests ? parseInt(prefillGuests, 10) : undefined,
+      dateFrom: prefillDate,
+      tour: prefillTour
     }
   });
 
-  const languageOptions = useMemo(
-    () => [
-      {value: 'en' as const, label: t('form.language.en')},
-      {value: 'es' as const, label: t('form.language.es')},
-      {value: 'ru' as const, label: t('form.language.ru')}
-    ],
-    [t]
-  );
+  const onSubmit = async (values: FormValues) => {
+    setSubmitState('submitting');
+    console.log('Booking inquiry:', values);
+    await new Promise(r => setTimeout(r, 850));
+    setSubmitState('success');
+    reset(undefined, {keepDefaultValues: true});
+    window.setTimeout(() => setSubmitState('idle'), 4000);
+  };
 
-  const interestOptions = useMemo(
-    () => [
-      {value: 'history' as const, label: t('form.interests.history')},
-      {value: 'cenotes' as const, label: t('form.interests.cenotes')},
-      {value: 'adventure' as const, label: t('form.interests.adventure')},
-      {value: 'custom' as const, label: t('form.interests.custom')}
-    ],
-    [t]
-  );
+  if (submitState === 'success') {
+    return (
+      <div className="rounded-3xl border border-accent/20 bg-accent/5 px-8 py-12 text-center">
+        <div className="text-4xl mb-4">🎉</div>
+        <h3 className="text-xl font-medium text-text mb-2">Got it!</h3>
+        <p className="text-sm text-text-muted leading-6">I'll get back to you within the hour. Check your email.</p>
+      </div>
+    );
+  }
 
   return (
     <form
       className="rounded-3xl border border-text/10 bg-white/70 backdrop-blur-sm p-7 shadow-[0_16px_40px_rgba(28,28,26,0.08)]"
-      onSubmit={handleSubmit(async (values) => {
-        setSubmitState('submitting');
-
-        // TODO: Hook this up to email/API later.
-        console.log('InquiryForm submit', values);
-
-        await new Promise((r) => setTimeout(r, 850));
-        setSubmitState('success');
-        reset(undefined, {keepDefaultValues: true});
-
-        window.setTimeout(() => setSubmitState('idle'), 3500);
-      })}
+      onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="md:col-span-2">
-          <label className="text-sm font-medium text-text">
-            {t('form.fullName')}
+      <div className="grid gap-5">
+
+        {/* Full name */}
+        <div>
+          <label className={labelCls}>
+            Full name <span className="text-red-400">*</span>
           </label>
           <input
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
-            {...register('fullName', {required: true, minLength: 2})}
+            className={inputCls}
+            placeholder="Your name"
+            {...register('fullName', {required: 'Name is required', minLength: {value: 2, message: 'Too short'}})}
             aria-invalid={errors.fullName ? 'true' : 'false'}
           />
+          {errors.fullName && <p className={errorCls}>{errors.fullName.message}</p>}
         </div>
 
+        {/* Email */}
         <div>
-          <label className="text-sm font-medium text-text">{t('form.email')}</label>
+          <label className={labelCls}>
+            Email <span className="text-red-400">*</span>
+          </label>
           <input
             type="email"
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
+            className={inputCls}
+            placeholder="you@example.com"
             {...register('email', {
-              required: true,
-              pattern: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/
+              required: 'Email is required',
+              pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email'}
             })}
             aria-invalid={errors.email ? 'true' : 'false'}
           />
+          {errors.email && <p className={errorCls}>{errors.email.message}</p>}
         </div>
 
+        {/* Dates */}
         <div>
-          <label className="text-sm font-medium text-text">
-            {t('form.preferredLanguage')}
+          <label className={labelCls}>
+            Preferred dates <span className="text-red-400">*</span>
+          </label>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <input
+                type="date"
+                className={inputCls}
+                onClick={e => (e.currentTarget as HTMLInputElement).showPicker?.()}
+                {...register('dateFrom', {required: 'Start date is required'})}
+                aria-invalid={errors.dateFrom ? 'true' : 'false'}
+              />
+              {errors.dateFrom && <p className={errorCls}>{errors.dateFrom.message}</p>}
+            </div>
+            <div>
+              <input
+                type="date"
+                className={inputCls}
+                onClick={e => (e.currentTarget as HTMLInputElement).showPicker?.()}
+                {...register('dateTo')}
+              />
+              <p className="mt-1 text-xs text-text-muted">End date (optional)</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Group size */}
+        <div>
+          <label className={labelCls}>
+            How many people <span className="text-red-400">*</span>
           </label>
           <select
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
-            {...register('preferredLanguage', {required: true})}
+            className={inputCls}
+            {...register('groupSize', {required: 'Please select group size', valueAsNumber: true})}
+            aria-invalid={errors.groupSize ? 'true' : 'false'}
           >
-            {languageOptions.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
+            <option value="">Select number of people</option>
+            {[1,2,3,4,5,6,7,8,9,10].map(n => (
+              <option key={n} value={n}>{n} {n === 1 ? 'person' : 'people'}</option>
+            ))}
+            <option value={11}>11+ people</option>
+          </select>
+          {errors.groupSize && <p className={errorCls}>{errors.groupSize.message}</p>}
+        </div>
+
+        {/* Accommodation */}
+        <div>
+          <label className={labelCls}>Where are you staying?</label>
+          <input
+            className={inputCls}
+            placeholder="Hotel name, resort, Airbnb..."
+            {...register('accommodation')}
+          />
+        </div>
+
+        {/* Tour */}
+        <div>
+          <label className={labelCls}>Select a tour <span className="text-text-muted text-xs font-normal">(optional)</span></label>
+          <select className={inputCls} {...register('tour')}>
+            <option value="">Not sure yet</option>
+            {tours.map(tour => (
+              <option key={tour.slug} value={tour.name}>{tour.name}</option>
             ))}
           </select>
         </div>
 
+        {/* Message */}
         <div>
-          <label className="text-sm font-medium text-text">
-            {t('form.travelDates')} ({t('form.travelDates.from')})
-          </label>
-          <input
-            type="date"
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
-            {...register('travelFrom')}
-          />
-        </div>
-
-        <div>
-          <label className="text-sm font-medium text-text">
-            {t('form.travelDates')} ({t('form.travelDates.to')})
-          </label>
-          <input
-            type="date"
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
-            {...register('travelTo')}
-          />
-        </div>
-
-        <div>
-          <label className="text-sm font-medium text-text">{t('form.groupSize')}</label>
-          <input
-            type="number"
-            min={1}
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
-            {...register('groupSize', {required: true, valueAsNumber: true, min: 1})}
-            aria-invalid={errors.groupSize ? 'true' : 'false'}
-          />
-        </div>
-
-        <div className="md:col-span-2">
-          <div className="text-sm font-medium text-text">{t('form.interests')}</div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {interestOptions.map((o) => (
-              <label
-                key={o.value}
-                className="inline-flex items-center gap-2 rounded-full border border-text/10 bg-white/70 px-4 py-2 text-sm text-text/85 hover:bg-surface transition-colors cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  value={o.value}
-                  className="h-4 w-4 accent-accent"
-                  {...register('interests')}
-                />
-                <span>{o.label}</span>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <div className="md:col-span-2">
-          <label className="text-sm font-medium text-text">{t('form.message')}</label>
+          <label className={labelCls}>Message <span className="text-text-muted text-xs font-normal">(optional)</span></label>
           <textarea
-            rows={5}
-            className="mt-2 w-full rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent-light/40"
-            {...register('message', {required: true, minLength: 10})}
-            aria-invalid={errors.message ? 'true' : 'false'}
+            rows={4}
+            className={inputCls}
+            placeholder="Anything else you'd like me to know..."
+            {...register('message')}
           />
         </div>
+
       </div>
 
       <button
@@ -183,15 +183,8 @@ export function InquiryForm() {
         disabled={submitState === 'submitting'}
         className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-medium text-white hover:bg-accent/90 transition-colors disabled:opacity-60"
       >
-        {submitState === 'submitting' ? t('form.sending') : t('form.send')}
+        {submitState === 'submitting' ? 'Sending...' : 'Send Inquiry'}
       </button>
-
-      {submitState === 'success' && (
-        <div className="mt-4 rounded-2xl border border-accent/20 bg-accent/10 px-4 py-3 text-sm text-text">
-          {t('form.success')}
-        </div>
-      )}
     </form>
   );
 }
-

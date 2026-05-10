@@ -8,26 +8,25 @@ export const services: Service[] = [
   {
     title: 'Airport Meet & Greet',
     description:
-      "Land stress-free. I'll be waiting for you at arrivals, ready to make your first moments in Mexico smooth and welcoming.",
+      "Land and see a familiar face. I'll be at arrivals before your flight touches down — no figuring out taxis, no confusion, no stressful first hour in a new country.",
     icon: 'plane'
   },
   {
-    title: 'Custom Itinerary Design',
+    title: 'Custom Day Design',
     description:
-      "Tell me what excites you — history, adventure, food, beaches — and I'll build a day (or more) entirely around your group.",
+      "Tell me what your group loves — history, adventure, food, water, all of it — and I'll build a day that actually fits. No preset packages, no compromises.",
     icon: 'map'
   },
   {
-    title: 'Family & Group Packages',
+    title: 'Family & Group Trips',
     description:
-      'Traveling with kids or a larger crew? I specialize in experiences that work for everyone, from adventurous teens to grandparents.',
+      'Three generations? Mixed ages? Excited kids and less-excited grandparents? I do this well. I\'ll design a day where everyone has a real reason to be glad they came.',
     icon: 'users'
   },
   {
-    title: 'Multi-Day Experiences',
+    title: 'Multi-Day Yucatán Trips',
     description:
-      'Want to go deeper into the Yucatán? I can plan and guide multi-day adventures across the entire Riviera Maya.',
+      "One day is never quite enough. If you want to go deeper — more ruins, more cenotes, more of the Yucatán — I can plan and guide multi-day trips across the entire region.",
     icon: 'sunset'
   }
 ];
-
