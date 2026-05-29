@@ -49,23 +49,23 @@ export const tours: Tour[] = [
     notIncluded: ['Meals', 'Gratuity'],
     image: {
       // TODO: Replace with real photo
-      src: 'https://images.unsplash.com/photo-1526481280695-3c687fd643ed?auto=format&fit=crop&w=1600&q=80',
+      src: '/tours/snorkeling.jpg',
       alt: 'Snorkeling in turquoise water in Mexico'
     },
     gallery: [
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/cenote-underwater.jpg',
         alt: 'Underwater snorkeling scene'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1587502536263-9298a7607c37?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/cenote-light.jpg',
         alt: 'Cenote pool with light beams'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1523438097201-512ae7f9b0e9?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/sea-turtle.jpg',
         alt: 'Sea turtle underwater'
       }
     ]
@@ -90,23 +90,23 @@ export const tours: Tour[] = [
     notIncluded: ['Meals', 'Gratuity'],
     image: {
       // TODO: Replace with real photo
-      src: 'https://images.unsplash.com/photo-1605212758411-6b5f991a1fdd?auto=format&fit=crop&w=1600&q=80',
+      src: '/tours/mayan-ruins.jpg',
       alt: 'Mayan ruins surrounded by jungle'
     },
     gallery: [
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1583946099379-33aaec1f14d5?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/stone-ruins.jpg',
         alt: 'Stone ruins in Mexico'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1519682577862-22b62b24e493?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/jungle-canopy.jpg',
         alt: 'Jungle canopy view'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/zipline.jpg',
         alt: 'Zip line through jungle'
       }
     ]
@@ -131,23 +131,23 @@ export const tours: Tour[] = [
     notIncluded: ['Meals', 'Gratuity'],
     image: {
       // TODO: Replace with real photo
-      src: 'https://images.unsplash.com/photo-1587502536263-9298a7607c37?auto=format&fit=crop&w=1600&q=80',
+      src: '/tours/cenote-light.jpg',
       alt: 'Cenote in the Riviera Maya'
     },
     gallery: [
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1585238342028-4ba53f41f0ce?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/tulum-sea.jpg',
         alt: 'Tulum ruins by the sea'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1526481280695-3c687fd643ed?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/snorkeling.jpg',
         alt: 'Turquoise water'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1590086782792-42dd2350140d?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/jungle-path.jpg',
         alt: 'Jungle path'
       }
     ]
@@ -172,23 +172,23 @@ export const tours: Tour[] = [
     notIncluded: ['Meals', 'Gratuity'],
     image: {
       // TODO: Replace with real photo
-      src: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80',
+      src: '/tours/pyramid.jpg',
       alt: 'Ancient stone pyramid in Mexico'
     },
     gallery: [
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/pyramid.jpg',
         alt: 'Mayan pyramid'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1523438097201-512ae7f9b0e9?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/sea-turtle.jpg',
         alt: 'Underwater scene'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1528150177508-7cc0c36cda5b?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/limestone-ruins.jpg',
         alt: 'Limestone ruins and carvings'
       }
     ]
@@ -213,23 +213,23 @@ export const tours: Tour[] = [
     notIncluded: ['Meals', 'Gratuity'],
     image: {
       // TODO: Replace with real photo
-      src: 'https://images.unsplash.com/photo-1587502536263-9298a7607c37?auto=format&fit=crop&w=1600&q=80',
+      src: '/tours/cenote-light.jpg',
       alt: 'Cenote with sunlight'
     },
     gallery: [
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1587502536263-9298a7607c37?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/cenote-light.jpg',
         alt: 'Cenote light beams'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1565619624098-cf4168a6d4d7?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/jungle.jpg',
         alt: 'Tropical foliage'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1526481280695-3c687fd643ed?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/snorkeling.jpg',
         alt: 'Turquoise water surface'
       }
     ]
@@ -254,23 +254,23 @@ export const tours: Tour[] = [
     notIncluded: ['Meals', 'Gratuity'],
     image: {
       // TODO: Replace with real photo
-      src: 'https://images.unsplash.com/photo-1565619624098-cf4168a6d4d7?auto=format&fit=crop&w=1600&q=80',
+      src: '/tours/jungle.jpg',
       alt: 'Jungle greenery in the Riviera Maya'
     },
     gallery: [
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1519682577862-22b62b24e493?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/jungle-canopy.jpg',
         alt: 'Jungle canopy'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/zipline.jpg',
         alt: 'Zip line'
       },
       {
         // TODO: Replace with real photo
-        src: 'https://images.unsplash.com/photo-1587502536263-9298a7607c37?auto=format&fit=crop&w=1400&q=80',
+        src: '/tours/cenote-underwater.jpg',
         alt: 'Cenote water'
       }
     ]

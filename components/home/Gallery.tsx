@@ -3,40 +3,23 @@
 import {useTranslations} from 'next-intl';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
+import {highlightAccent} from '@/components/shared/highlighted-text';
 
 // Placeholder images - replace with your actual gallery images
 const GALLERY_IMAGES = [
-  {
-    src: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gallery image 1'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gallery image 2'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gallery image 3'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1580541631950-7282082b53ce?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gallery image 4'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1601371726345-f88c4b3e8d3b?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gallery image 5'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gallery image 6'
-  }
+  { src: '/gallery/gallery-1.jpg', alt: 'Riviera Maya scenery' },
+  { src: '/gallery/gallery-2.jpg', alt: 'Mexico travel experience' },
+  { src: '/tours/cenote-underwater.jpg', alt: 'Cenote swimming' },
+  { src: '/gallery/gallery-3.jpg', alt: 'Tropical nature' },
+  { src: '/gallery/gallery-4.jpg', alt: 'Local adventure' },
+  { src: '/tours/jungle-canopy.jpg', alt: 'Jungle canopy' }
 ];
 
 export function Gallery() {
   const t = useTranslations();
 
   return (
-    <section id="gallery" className="py-20 bg-surface">
+    <section id="gallery" className="pt-12 pb-20 bg-surface">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           className="text-center mb-12"
@@ -49,7 +32,7 @@ export function Gallery() {
             {t('gallery.eyebrow')}
           </span>
           <h2 className="mt-3 text-4xl md:text-5xl">
-            {t('gallery.title')}
+            {highlightAccent(t('gallery.title'), 'Adventures')}
           </h2>
         </motion.div>
 
