@@ -35,10 +35,10 @@ export function WhyKat() {
         style={{background: 'linear-gradient(to left, rgba(7,30,50,0.95) 0%, rgba(7,30,50,0.88) 30%, rgba(7,30,50,0.5) 55%, transparent 75%)'}}
       />
       {/* Content pinned to right half */}
-      <div className="relative flex h-full min-h-[600px] items-center">
-        <div className="ml-auto w-full max-w-xl px-10 py-16 md:py-24">
-          <div className="[&_h2]:text-white [&_span]:text-white">
-            <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} />
+      <div className="relative flex h-full min-h-[600px] items-end">
+        <div className="ml-auto w-full max-w-xl px-10 py-16 md:pb-24 md:pt-16">
+          <div className="[&_h2]:text-white [&_div]:text-white">
+            <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} accentPhrase="you around!" />
           </div>
           <div className="mt-10 grid gap-8">
             {blocks.map(b => <TextBlock key={b.title} title={b.title} body={b.body} />)}

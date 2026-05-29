@@ -12,11 +12,13 @@ export function FeaturedTours() {
   const featured = tours;
 
   return (
-    <AnimatedSection className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <AnimatedSection className="mx-auto max-w-6xl px-6 pt-10 pb-16 md:pt-14 md:pb-24">
+      <div className="flex justify-center">
         <SectionHeading
           eyebrow={t('featuredTours.eyebrow')}
           title={t('featuredTours.title')}
+          align="center"
+          accentPhrase="worth"
         />
       </div>
 

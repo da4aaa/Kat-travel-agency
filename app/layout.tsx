@@ -1,11 +1,12 @@
 import type {Metadata} from 'next';
-import {DM_Sans, Playfair_Display} from 'next/font/google';
+import {DM_Sans, Lora} from 'next/font/google';
 
 import './globals.css';
 
-const display = Playfair_Display({
+const display = Lora({
   variable: '--font-display',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap'
 });
 
@@ -14,6 +15,7 @@ const body = DM_Sans({
   subsets: ['latin'],
   display: 'swap'
 });
+
 
 export const metadata: Metadata = {
   // TODO: Replace with the production domain once known

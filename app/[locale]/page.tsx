@@ -4,7 +4,7 @@ import {WhyKat} from '@/components/home/WhyKat';
 import {FeaturedTours} from '@/components/home/FeaturedTours';
 import {FinalCTA} from '@/components/home/FinalCTA';
 import {Gallery} from '@/components/home/Gallery';
-import {ContactStrip} from '@/components/home/ContactStrip';
+
 
 export const metadata = {
   title: 'Kat B. | Private Tour Guide in Playa del Carmen, Mexico',
@@ -29,12 +29,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ReviewsSlider />
-      <section id="about"><WhyKat /></section>
       <section id="tours"><FeaturedTours /></section>
-      <FinalCTA />
+      <section id="reviews"><ReviewsSlider /></section>
+      <section id="about"><WhyKat /></section>
       <Gallery />
-      <ContactStrip />
+      <FinalCTA />
     </>
   );
 }

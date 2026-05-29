@@ -8,9 +8,9 @@ export function TourCard({tour}: {tour: Tour}) {
   const t = useTranslations();
 
   return (
-    <article className="group overflow-hidden rounded-3xl border border-text/10 bg-white shadow-[0_16px_40px_rgba(28,28,26,0.10)]">
-      <Link href={`/tours/${tour.slug}`} className="block">
-        <div className="relative h-56">
+    <article className="group overflow-hidden rounded-3xl border border-text/10 bg-white shadow-[0_16px_40px_rgba(28,28,26,0.10)] flex flex-col">
+      <Link href={`/tours/${tour.slug}`} className="flex flex-col flex-1">
+        <div className="relative h-40">
           <Image
             src={tour.image.src}
             alt={tour.image.alt}
@@ -26,27 +26,30 @@ export function TourCard({tour}: {tour: Tour}) {
                 'linear-gradient(180deg, rgba(28,28,26,0.05) 0%, rgba(28,28,26,0.62) 100%)'
             }}
           />
-          <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs text-text backdrop-blur-sm border border-text/10">
-            <span className="text-text-muted">{t('tour.badge.duration')}:</span>
-            <span className="font-medium">{tour.duration}</span>
-          </div>
         </div>
 
-        <div className="p-6">
+        <div className="flex flex-col p-6 flex-1">
           <h3 className="text-xl leading-tight">{tour.name}</h3>
           <p className="mt-2 text-sm leading-6 text-text-muted">{tour.tagline}</p>
 
-          <div className="mt-5 flex items-center justify-between gap-4">
-            <div className="text-xs text-text-muted">
-              {t('tour.badge.group')}: <span className="text-text">{tour.groupSize}</span>
-            </div>
-            <div className="text-sm font-medium text-text">
-              <span className="text-text-muted mr-2">{t('tour.card.from')}</span>${tour.price}
-            </div>
+          <div className="mt-5 flex items-center gap-4 text-sm text-text-muted">
+            <span className="flex items-center gap-1">
+              <img src="/icons/avg_pace.svg" alt="" width={14} height={14} aria-hidden="true" />
+              <span className="text-text">{tour.duration}</span>
+            </span>
+            <span className="flex items-center gap-1">
+              <img src="/icons/person_2.svg" alt="" width={14} height={14} aria-hidden="true" />
+              <span className="text-text">{tour.groupSize}</span>
+            </span>
           </div>
 
-          <div className="mt-6 inline-flex text-sm font-medium text-accent">
-            {t('tour.card.details')} →
+          <div className="mt-auto pt-6 flex items-center justify-between gap-4">
+            <div className="text-sm text-text">
+              {t('tour.card.from')} <span className="font-bold">${tour.price}</span>
+            </div>
+            <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 group-hover:opacity-80" style={{backgroundColor: '#CAFFF5', color: '#394D4A'}}>
+              {t('tour.card.details')}
+            </span>
           </div>
         </div>
       </Link>

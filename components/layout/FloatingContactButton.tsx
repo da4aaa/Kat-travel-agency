@@ -87,7 +87,7 @@ export function FloatingContactButton() {
         type="button"
         onClick={() => setOpen(!open)}
         aria-label="Contact options"
-        className="group relative grid h-14 w-14 place-items-center rounded-full bg-[#FF8C42] text-white shadow-[0_18px_60px_rgba(255,140,66,0.35)]"
+        className="group relative grid h-14 w-14 place-items-center rounded-full bg-[#0E9E8A] text-white shadow-[0_18px_60px_rgba(255,140,66,0.35)]"
         initial={false}
         animate={
           reduced
@@ -118,7 +118,7 @@ export function FloatingContactButton() {
         whileHover={reduced ? undefined : {scale: 1.1, rotate: 5}}
         whileTap={{scale: 0.95}}
       >
-        <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#FF8C42]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+        <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#0E9E8A]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
         <motion.div
           animate={
             reduced

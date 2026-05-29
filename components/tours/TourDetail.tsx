@@ -124,11 +124,12 @@ export function TourDetail({
           <div className="flex items-center justify-between gap-4">
             <div>
               <div className="text-xs text-text-muted">{t('tour.card.from')}</div>
-              <div className="text-2xl font-medium text-text">${tour.price}</div>
+              <div className="text-2xl font-bold text-text">${tour.price}</div>
             </div>
             <div className="flex gap-3">
-              <ContactDropdown tourName={tour.name} variant="outline" className="hidden md:flex bg-white/70 backdrop-blur-sm" />
-              <BookTourButton label={t('tourDetail.bookThis')} />
+              <div className="btn-pulse rounded-[900px]">
+                <BookTourButton label={t('tourDetail.bookThis')} />
+              </div>
             </div>
           </div>
         </div>

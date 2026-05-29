@@ -181,7 +181,8 @@ export function InquiryForm() {
       <button
         type="submit"
         disabled={submitState === 'submitting'}
-        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-medium text-white hover:bg-accent/90 transition-colors disabled:opacity-60"
+        className="mt-6 inline-flex w-full items-center justify-center px-6 py-3 text-sm font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-60 shadow-[0_8px_32px_rgba(0,255,255,0.25)]"
+        style={{borderRadius: '900px', background: 'linear-gradient(100deg, #00D4FF -8.86%, #2EE0B4 104.42%)'}}
       >
         {submitState === 'submitting' ? 'Sending...' : 'Send Inquiry'}
       </button>

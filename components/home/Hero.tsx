@@ -13,20 +13,8 @@ const SLIDES = [
     alt: 'Turquoise waters and beach in Playa del Carmen'
   },
   {
-    src: 'https://images.unsplash.com/photo-1587502536263-9298a7607c37?auto=format&fit=crop&w=1800&q=85',
-    alt: 'Cenote with sunlight beams in the Riviera Maya'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1800&q=85',
-    alt: 'Ancient Mayan pyramid surrounded by jungle'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1526481280695-3c687fd643ed?auto=format&fit=crop&w=1800&q=85',
-    alt: 'Snorkeling in turquoise water in Mexico'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1565619624098-cf4168a6d4d7?auto=format&fit=crop&w=1800&q=85',
-    alt: 'Jungle greenery in the Riviera Maya'
+    src: '/hero-beach-sunset.jpg',
+    alt: 'Sunset over a calm beach in the Riviera Maya'
   },
 ];
 
@@ -82,11 +70,11 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative flex h-full flex-col items-center justify-center px-6 text-center">
+      <div className="relative flex h-full flex-col items-center justify-center px-6 text-center" style={{paddingTop: '30px'}}>
         {/* Headline */}
         <motion.h1
           className="text-white max-w-4xl"
-          style={{fontSize: '80px', lineHeight: 1.0, textShadow: '0 2px 24px rgba(0,0,0,0.3)'}}
+          style={{fontSize: '80px', lineHeight: 1.15, textShadow: '0 2px 24px rgba(0,0,0,0.3)'}}
           initial="hidden"
           animate="show"
           variants={{

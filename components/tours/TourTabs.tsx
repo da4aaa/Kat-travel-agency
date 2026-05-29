@@ -34,9 +34,10 @@ export function TourTabs({tour}: {tour: Tour}) {
               className={[
                 'rounded-full px-4 py-2 text-sm border transition-colors',
                 isActive
-                  ? 'bg-accent text-white border-accent'
+                  ? 'text-white border-[#0E9E8A]'
                   : 'bg-white/70 backdrop-blur-sm border-text/10 text-text/80 hover:text-text hover:bg-surface'
               ].join(' ')}
+              style={isActive ? {backgroundColor: '#0E9E8A'} : undefined}
               aria-current={isActive ? 'true' : undefined}
             >
               {tab.label}

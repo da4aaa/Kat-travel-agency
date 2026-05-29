@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {motion, useReducedMotion} from 'framer-motion';
 import {ChevronLeft, ChevronRight} from 'lucide-react';
+import {highlightAccent} from '@/components/shared/highlighted-text';
 
 import {reviews} from '@/data/reviews';
 import {ReviewCard} from '@/components/shared/ReviewCard';
@@ -68,9 +69,10 @@ export function ReviewsSlider() {
   }, [reduced]);
 
   return (
-    <section className="bg-surface py-8 md:py-12 overflow-hidden">
+    <section className="bg-surface pt-8 pb-[52px] md:pt-12 md:pb-[68px] overflow-hidden">
+
       {/* Section Header - Centered */}
-      <div className="mx-auto max-w-6xl px-6 text-center mb-6">
+      <div className="mx-auto max-w-6xl px-6 text-center mb-9">
         <motion.div
           initial={reduced ? {opacity: 1} : {opacity: 0, y: 20}}
           whileInView={{opacity: 1, y: 0}}
@@ -81,7 +83,7 @@ export function ReviewsSlider() {
             {t('reviews.eyebrow')}
           </span>
           <h2 className="mt-3 text-4xl md:text-5xl">
-            {t('reviews.title')}
+            {highlightAccent(t('reviews.title'), 'across')}
           </h2>
         </motion.div>
       </div>
