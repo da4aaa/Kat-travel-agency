@@ -126,7 +126,7 @@ export function TourDetail({
             </div>
             <div className="flex gap-3">
               <div className="btn-pulse rounded-[900px]">
-                <BookTourButton label={t('tourDetail.bookThis')} />
+                <BookTourButton label={t('tourDetail.bookThis')} tourName={tour.name} />
               </div>
             </div>
           </div>

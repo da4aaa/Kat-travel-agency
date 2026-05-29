@@ -73,8 +73,8 @@ export function Hero() {
       <div className="relative flex h-full flex-col items-center justify-center px-6 text-center" style={{paddingTop: '30px'}}>
         {/* Headline */}
         <motion.h1
-          className="text-white max-w-4xl"
-          style={{fontSize: '80px', lineHeight: 1.15, textShadow: '0 2px 24px rgba(0,0,0,0.3)'}}
+          className="text-[45px] md:text-[80px] text-white max-w-4xl"
+          style={{lineHeight: 1.15, textShadow: '0 2px 24px rgba(0,0,0,0.3)'}}
           initial="hidden"
           animate="show"
           variants={{

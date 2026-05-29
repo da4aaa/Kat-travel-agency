@@ -1,15 +1,66 @@
 'use client';
 
-import {useState} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import {useForm} from 'react-hook-form';
 import {useTranslations} from 'next-intl';
 import {useSearchParams} from 'next/navigation';
+import type {DateRange} from 'react-day-picker';
+
+import {ChevronDown, Check} from 'lucide-react';
+
+import {DateRangePicker} from '@/components/shared/DateRangePicker';
 
 import {tours} from '@/data/tours';
 
+const tourOptions = ['', ...tours.map(t => t.name)];
+const tourLabel = (val: string) => val === '' ? 'Not sure yet' : val;
+
+function TourSelect({value, onChange}: {value: string; onChange: (v: string) => void}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    return () => document.removeEventListener('mousedown', onDown);
+  }, []);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen(v => !v)}
+        className="w-full flex items-center justify-between rounded-2xl border border-text/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-accent/20 transition-shadow text-left"
+      >
+        <span className={value ? 'text-text' : 'text-text-muted/60'}>{tourLabel(value)}</span>
+        <ChevronDown className={`h-4 w-4 text-text-muted shrink-0 ml-2 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 right-0 mt-2 z-50 bg-white rounded-2xl shadow-xl border border-text/10 overflow-hidden py-1">
+          {tourOptions.map(opt => (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => { onChange(opt); setOpen(false); }}
+              className="w-full flex items-center justify-between px-4 py-2.5 text-sm text-left text-text hover:bg-accent/5 transition-colors"
+            >
+              <span>{tourLabel(opt)}</span>
+              {value === opt && <Check className="h-4 w-4 text-accent shrink-0" />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 type FormValues = {
   fullName: string;
-  email: string;
+  email?: string;
+  phone?: string;
   dateFrom: string;
   dateTo?: string;
   groupSize: number;
@@ -22,24 +73,30 @@ const inputCls = 'w-full rounded-2xl border border-text/10 bg-white px-4 py-3 te
 const labelCls = 'block text-sm font-medium text-text mb-2';
 const errorCls = 'mt-1 text-xs text-red-500';
 
-export function InquiryForm() {
+export function InquiryForm({prefillTour}: {prefillTour?: string}) {
   const t = useTranslations();
   const searchParams = useSearchParams();
   const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [dateRange, setDateRange] = useState<DateRange | undefined>();
+  const [dateError, setDateError] = useState(false);
+  const [groupSize, setGroupSize] = useState<number>(1);
+  const [contactMethod, setContactMethod] = useState<'email' | 'whatsapp'>('email');
+  const [selectedTour, setSelectedTour] = useState<string>(prefillTour ?? '');
 
   const prefillDate = searchParams.get('date') ?? undefined;
   const prefillGuests = searchParams.get('guests');
-  const prefillTour = searchParams.get('tour') ?? undefined;
 
-  const {register, handleSubmit, formState: {errors}, reset} = useForm<FormValues>({
+  const {register, handleSubmit, setValue, formState: {errors}, reset} = useForm<FormValues>({
     defaultValues: {
-      groupSize: prefillGuests ? parseInt(prefillGuests, 10) : undefined,
+      groupSize: prefillGuests ? parseInt(prefillGuests, 10) : 1,
       dateFrom: prefillDate,
       tour: prefillTour
     }
   });
 
   const onSubmit = async (values: FormValues) => {
+    if (!dateRange?.from) { setDateError(true); return; }
+    setDateError(false);
     setSubmitState('submitting');
     console.log('Booking inquiry:', values);
     await new Promise(r => setTimeout(r, 850));
@@ -79,49 +136,76 @@ export function InquiryForm() {
           {errors.fullName && <p className={errorCls}>{errors.fullName.message}</p>}
         </div>
 
-        {/* Email */}
+        {/* Contact */}
         <div>
-          <label className={labelCls}>
-            Email <span className="text-red-400">*</span>
-          </label>
-          <input
-            type="email"
-            className={inputCls}
-            placeholder="you@example.com"
-            {...register('email', {
-              required: 'Email is required',
-              pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email'}
-            })}
-            aria-invalid={errors.email ? 'true' : 'false'}
-          />
-          {errors.email && <p className={errorCls}>{errors.email.message}</p>}
+            <label className={labelCls}>
+              Contact <span className="text-red-400">*</span>
+            </label>
+            <div className="flex gap-2 mb-2">
+              {(['email', 'whatsapp'] as const).map(method => (
+                <button
+                  key={method}
+                  type="button"
+                  onClick={() => setContactMethod(method)}
+                  className={[
+                    'px-4 h-8 rounded-xl border text-xs font-medium transition-colors capitalize',
+                    contactMethod === method
+                      ? 'border-accent bg-accent text-white'
+                      : 'border-text/10 bg-white text-text hover:border-accent/40 hover:bg-accent/5'
+                  ].join(' ')}
+                >
+                  {method === 'whatsapp' ? 'WhatsApp' : 'Email'}
+                </button>
+              ))}
+            </div>
+            {contactMethod === 'email' ? (
+              <>
+                <input
+                  type="email"
+                  className={inputCls}
+                  placeholder="you@example.com"
+                  {...register('email', {
+                    required: 'Email is required',
+                    pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email'}
+                  })}
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                />
+                {errors.email && <p className={errorCls}>{errors.email.message}</p>}
+              </>
+            ) : (
+              <>
+                <input
+                  type="tel"
+                  className={inputCls}
+                  placeholder="+1 234 567 8900"
+                  {...register('phone', {required: 'Phone number is required'})}
+                  aria-invalid={errors.phone ? 'true' : 'false'}
+                />
+                {errors.phone && <p className={errorCls}>{errors.phone.message}</p>}
+              </>
+            )}
         </div>
 
-        {/* Dates */}
-        <div>
-          <label className={labelCls}>
-            Preferred dates <span className="text-red-400">*</span>
-          </label>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <input
-                type="date"
-                className={inputCls}
-                onClick={e => (e.currentTarget as HTMLInputElement).showPicker?.()}
-                {...register('dateFrom', {required: 'Start date is required'})}
-                aria-invalid={errors.dateFrom ? 'true' : 'false'}
-              />
-              {errors.dateFrom && <p className={errorCls}>{errors.dateFrom.message}</p>}
-            </div>
-            <div>
-              <input
-                type="date"
-                className={inputCls}
-                onClick={e => (e.currentTarget as HTMLInputElement).showPicker?.()}
-                {...register('dateTo')}
-              />
-              <p className="mt-1 text-xs text-text-muted">End date (optional)</p>
-            </div>
+        {/* Tour + Dates row on desktop */}
+        <div className="grid gap-5 md:grid-cols-2">
+          <div>
+            <label className={labelCls}>Select a tour <span className="text-text-muted text-xs font-normal">(optional)</span></label>
+            <TourSelect
+              value={selectedTour}
+              onChange={v => { setSelectedTour(v); setValue('tour', v); }}
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>
+              Preferred dates <span className="text-red-400">*</span>
+            </label>
+            <DateRangePicker
+              value={dateRange}
+              onChange={r => { setDateRange(r); setDateError(false); }}
+              hasError={dateError}
+            />
+            {dateError && <p className={errorCls}>Please select at least a start date</p>}
           </div>
         </div>
 
@@ -130,18 +214,35 @@ export function InquiryForm() {
           <label className={labelCls}>
             How many people <span className="text-red-400">*</span>
           </label>
-          <select
-            className={inputCls}
-            {...register('groupSize', {required: 'Please select group size', valueAsNumber: true})}
-            aria-invalid={errors.groupSize ? 'true' : 'false'}
-          >
-            <option value="">Select number of people</option>
+          <div className="flex flex-wrap gap-2">
             {[1,2,3,4,5,6,7,8,9,10].map(n => (
-              <option key={n} value={n}>{n} {n === 1 ? 'person' : 'people'}</option>
+              <button
+                key={n}
+                type="button"
+                onClick={() => { setGroupSize(n); setValue('groupSize', n); }}
+                className={[
+                  'h-9 w-9 rounded-xl border text-sm font-medium transition-colors',
+                  groupSize === n
+                    ? 'border-accent bg-accent text-white'
+                    : 'border-text/10 bg-white text-text hover:border-accent/40 hover:bg-accent/5'
+                ].join(' ')}
+              >
+                {n}
+              </button>
             ))}
-            <option value={11}>11+ people</option>
-          </select>
-          {errors.groupSize && <p className={errorCls}>{errors.groupSize.message}</p>}
+            <button
+              type="button"
+              onClick={() => { setGroupSize(11); setValue('groupSize', 11); }}
+              className={[
+                'h-9 px-3 rounded-xl border text-sm font-medium transition-colors',
+                groupSize === 11
+                  ? 'border-accent bg-accent text-white'
+                  : 'border-text/10 bg-white text-text hover:border-accent/40 hover:bg-accent/5'
+              ].join(' ')}
+            >
+              10+
+            </button>
+          </div>
         </div>
 
         {/* Accommodation */}
@@ -152,17 +253,6 @@ export function InquiryForm() {
             placeholder="Hotel name, resort, Airbnb..."
             {...register('accommodation')}
           />
-        </div>
-
-        {/* Tour */}
-        <div>
-          <label className={labelCls}>Select a tour <span className="text-text-muted text-xs font-normal">(optional)</span></label>
-          <select className={inputCls} {...register('tour')}>
-            <option value="">Not sure yet</option>
-            {tours.map(tour => (
-              <option key={tour.slug} value={tour.name}>{tour.name}</option>
-            ))}
-          </select>
         </div>
 
         {/* Message */}

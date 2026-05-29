@@ -22,8 +22,9 @@ export function useBookingModal() {
 // ── Provider ───────────────────────────────────────────────────────────────
 export function BookingModalProvider({children}: {children: React.ReactNode}) {
   const [isOpen, setIsOpen] = useState(false);
+  const [prefillTour, setPrefillTour] = useState<string | undefined>();
 
-  const open = useCallback(() => setIsOpen(true), []);
+  const open = useCallback((tour?: string) => { setPrefillTour(tour); setIsOpen(true); }, []);
   const close = useCallback(() => setIsOpen(false), []);
 
   // Lock body scroll when open
@@ -42,13 +43,13 @@ export function BookingModalProvider({children}: {children: React.ReactNode}) {
   return (
     <Ctx.Provider value={{open, close}}>
       {children}
-      <BookingModal isOpen={isOpen} onClose={close} />
+      <BookingModal isOpen={isOpen} onClose={close} prefillTour={prefillTour} />
     </Ctx.Provider>
   );
 }
 
 // ── Modal ──────────────────────────────────────────────────────────────────
-function BookingModal({isOpen, onClose}: {isOpen: boolean; onClose: () => void}) {
+function BookingModal({isOpen, onClose, prefillTour}: {isOpen: boolean; onClose: () => void; prefillTour?: string}) {
   const t = useTranslations();
 
   return (
@@ -76,7 +77,7 @@ function BookingModal({isOpen, onClose}: {isOpen: boolean; onClose: () => void})
             transition={{duration: 0.3, ease: [0.22, 1, 0.36, 1]}}
           >
             <div
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl bg-bg shadow-[0_32px_80px_rgba(0,0,0,0.25)]"
+              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl bg-bg shadow-[0_32px_80px_rgba(0,0,0,0.25)] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
               onClick={e => e.stopPropagation()}
             >
               {/* Close */}
@@ -93,7 +94,7 @@ function BookingModal({isOpen, onClose}: {isOpen: boolean; onClose: () => void})
                 <p className="text-base text-text-muted mb-10">{t('contact.subtitle')}</p>
 
                 <Suspense fallback={<div className="h-64 rounded-3xl bg-surface animate-pulse" />}>
-                  <InquiryForm />
+                  <InquiryForm prefillTour={prefillTour} />
                 </Suspense>
               </div>
             </div>

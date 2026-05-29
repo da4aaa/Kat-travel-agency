@@ -22,7 +22,7 @@ export function FinalCTA() {
         >
           <div className="grid gap-8 md:grid-cols-[1.4fr_0.8fr] md:items-center">
             <div>
-              <h2 className="text-3xl leading-[1.02] md:text-4xl">
+              <h2 className="text-3xl leading-[1.4] md:text-4xl">
                 Tell me about your trip.<br />
                 {highlightAccent("I'll figure out the rest.", "the rest.")}
               </h2>
@@ -46,18 +46,15 @@ export function FinalCTA() {
                 </div>
               </a>
 
-              <a
-                href={emailUrl}
-                className="flex items-center gap-3 rounded-2xl border border-text/10 bg-white px-5 py-4 hover:border-accent/30 hover:bg-accent/5 transition-colors"
-              >
+              <div className="flex items-center gap-3 rounded-2xl border border-text/10 bg-white px-5 py-4">
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent/10">
                   <Mail className="h-5 w-5 text-accent" />
                 </div>
                 <div>
                   <div className="text-sm font-medium text-text">Email</div>
-                  <div className="text-xs text-text-muted">{t('contact.emailOption')}</div>
+                  <div className="text-xs text-text-muted">eail@domain.com</div>
                 </div>
-              </a>
+              </div>
 
             </div>
           </div>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 
 import {AnimatedSection} from '@/components/shared/AnimatedSection';
@@ -15,33 +14,47 @@ export function WhyKat() {
 
   const TextBlock = ({ title, body }: { title: string; body: string }) => (
     <div>
-      <h3 className="text-lg font-medium leading-snug mb-3 text-white">{title}</h3>
-      <p className="text-sm leading-7" style={{color: '#ffffff'}}>{body}</p>
+      <h3 className="text-lg font-medium leading-snug mb-2">{title}</h3>
+      <p className="text-sm leading-7 text-gray-600">{body}</p>
     </div>
   );
 
   return (
-    <AnimatedSection className="relative overflow-hidden min-h-[600px]">
-      <Image
-        src="/kat-guide.jpg"
-        alt="Kat B. — private tour guide at Mayan ruins in the Riviera Maya"
-        fill
-        className="object-cover object-center"
-        sizes="100vw"
-      />
-      {/* Gradient from right only — left stays clear */}
-      <div
-        className="absolute inset-0"
-        style={{background: 'linear-gradient(to left, rgba(7,30,50,0.95) 0%, rgba(7,30,50,0.88) 30%, rgba(7,30,50,0.5) 55%, transparent 75%)'}}
-      />
-      {/* Content pinned to right half */}
-      <div className="relative flex h-full min-h-[600px] items-end">
-        <div className="ml-auto w-full max-w-xl px-10 py-16 md:pb-24 md:pt-16">
-          <div className="[&_h2]:text-white [&_div]:text-white">
-            <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} accentPhrase="you around!" />
-          </div>
-          <div className="mt-10 grid gap-8">
+    <AnimatedSection className="overflow-hidden bg-[#e8ede8]">
+      {/* Mobile: image on top, text below */}
+      <div className="md:hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/kat-guide.png"
+          alt="Kat B. — private tour guide in the jungle"
+          className="w-full h-[320px] object-cover object-top"
+        />
+        <div className="px-6 py-8 bg-white">
+          <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} accentPhrase="you around!" />
+          <div className="mt-8 grid gap-6">
             {blocks.map(b => <TextBlock key={b.title} title={b.title} body={b.body} />)}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: two columns side by side */}
+      <div className="hidden md:grid grid-cols-2 min-h-[600px]">
+        {/* Image column */}
+        <div className="relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/kat-guide.png"
+            alt="Kat B. — private tour guide in the jungle"
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
+        </div>
+        {/* Text column */}
+        <div className="flex items-center px-12 py-14 lg:px-16 bg-white">
+          <div>
+            <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} accentPhrase="you around!" />
+            <div className="mt-10 grid gap-8">
+              {blocks.map(b => <TextBlock key={b.title} title={b.title} body={b.body} />)}
+            </div>
           </div>
         </div>
       </div>
