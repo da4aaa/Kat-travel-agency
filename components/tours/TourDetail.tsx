@@ -38,7 +38,7 @@ export function TourDetail({
           />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-28 md:pt-32">
+        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-28 md:pt-36 md:pb-32">
           <div className="max-w-3xl">
             <h1 className="text-4xl leading-[1.0] text-white md:text-6xl">
               {tour.name}
@@ -48,42 +48,40 @@ export function TourDetail({
             </p>
           </div>
 
-          <div className="mt-10 grid gap-3 rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm p-5 md:grid-cols-4">
-            <div className="flex items-center gap-3 text-white/90">
-              <Clock className="h-5 w-5 text-accent-light" aria-hidden="true" />
-              <div>
-                <div className="text-xs text-white/70">{t('tour.badge.duration')}</div>
-                <div className="text-sm font-medium">{tour.duration}</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 text-white/90">
-              <Users className="h-5 w-5 text-accent-light" aria-hidden="true" />
-              <div>
-                <div className="text-xs text-white/70">{t('tour.badge.group')}</div>
-                <div className="text-sm font-medium">{tour.groupSize}</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 text-white/90">
-              <Car className="h-5 w-5 text-accent-light" aria-hidden="true" />
-              <div>
-                <div className="text-xs text-white/70">{t('tourDetail.transportIncluded')}</div>
-                <div className="text-sm font-medium">{t('trust.based.subtitle')}</div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between gap-3 text-white/90">
-              <div className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-accent-light" aria-hidden="true" />
-                <div>
-                  <div className="text-xs text-white/70">{t('tour.card.from')}</div>
-                  <div className="text-sm font-medium">${tour.price}</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-14 md:py-20 pb-32">
+      <section className="mx-auto max-w-6xl px-6 pt-0 pb-32">
+        <div className="-mt-11 mb-10 grid gap-3 rounded-3xl border border-text/10 bg-white p-5 shadow-md relative z-10 md:grid-cols-4">
+          <div className="flex items-center gap-3 text-text">
+            <Clock className="h-5 w-5 text-accent" aria-hidden="true" />
+            <div>
+              <div className="text-xs text-text-muted">{t('tour.badge.duration')}</div>
+              <div className="text-sm font-medium text-text">{tour.duration}</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 text-text">
+            <Users className="h-5 w-5 text-accent" aria-hidden="true" />
+            <div>
+              <div className="text-xs text-text-muted">{t('tour.badge.group')}</div>
+              <div className="text-sm font-medium text-text">{tour.groupSize}</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 text-text">
+            <Car className="h-5 w-5 text-accent" aria-hidden="true" />
+            <div>
+              <div className="text-xs text-text-muted">{t('tourDetail.transportIncluded')}</div>
+              <div className="text-sm font-medium text-text">{t('trust.based.subtitle')}</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 text-text">
+            <MapPin className="h-5 w-5 text-accent" aria-hidden="true" />
+            <div>
+              <div className="text-xs text-text-muted">{t('tour.card.from')}</div>
+              <div className="text-sm font-medium text-text">${tour.price}</div>
+            </div>
+          </div>
+        </div>
         <TourTabs tour={tour} />
 
         <div className="mt-14">
