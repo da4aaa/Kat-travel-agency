@@ -3,6 +3,7 @@
 import {useTranslations} from 'next-intl';
 
 import {Link} from '@/i18n/navigation';
+import {EMAIL} from '@/lib/contact';
 
 export function Footer() {
   const t = useTranslations();
@@ -18,6 +19,12 @@ export function Footer() {
             <p className="mt-3 max-w-sm text-sm leading-6 text-text-muted">
               Private tours in Playa del Carmen, Mexico
             </p>
+            <a
+              className="mt-4 inline-block break-all text-sm text-text/80 hover:text-text"
+              href={`mailto:${EMAIL}`}
+            >
+              {EMAIL}
+            </a>
             <p className="mt-5 text-xs text-text-muted">
               English · Español · Русский
             </p>

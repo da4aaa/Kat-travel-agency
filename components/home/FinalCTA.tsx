@@ -3,15 +3,13 @@
 import {useTranslations} from 'next-intl';
 import {Mail, MessageCircle} from 'lucide-react';
 import {highlightAccent} from '@/components/shared/highlighted-text';
-
-const WA_PHONE = '52XXXXXXXXXX';
-const EMAIL = 'kat@[yourdomain].com';
+import {EMAIL, mailLink, waLink} from '@/lib/contact';
 
 export function FinalCTA() {
   const t = useTranslations();
 
-  const waUrl = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent("Hi Kat, I'm interested in a tour")}`;
-  const emailUrl = `mailto:${EMAIL}?subject=${encodeURIComponent('Tour Inquiry')}`;
+  const waUrl = waLink("Hi Kat, I'm interested in a tour");
+  const emailUrl = mailLink('Tour Inquiry');
 
   return (
     <section className="bg-surface">
@@ -46,15 +44,18 @@ export function FinalCTA() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-3 rounded-2xl border border-text/10 bg-white px-5 py-4">
+              <a
+                href={emailUrl}
+                className="flex items-center gap-3 rounded-2xl border border-text/10 bg-white px-5 py-4 hover:border-accent/30 hover:bg-accent/5 transition-colors"
+              >
                 <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent/10">
                   <Mail className="h-5 w-5 text-accent" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-sm font-medium text-text">Email</div>
-                  <div className="text-xs text-text-muted">eail@domain.com</div>
+                  <div className="break-all text-xs text-text-muted">{EMAIL}</div>
                 </div>
-              </div>
+              </a>
 
             </div>
           </div>

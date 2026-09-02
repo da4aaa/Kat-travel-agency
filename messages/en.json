@@ -60,7 +60,10 @@
   },
   "gallery": {
     "eyebrow": "Captured moments",
-    "title": "Adventures in the Riviera Maya"
+    "title": "Adventures in the Riviera Maya",
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo"
   },
   "tour": {
     "badge": {
@@ -203,5 +206,32 @@
     "bookThis": "Book this tour",
     "askWhatsapp": "Ask me a question",
     "related": "Other tours you might like"
+  },
+  "builder": {
+    "cardTitle": "Create your own experience",
+    "cardTagline": "Pick the one thing you really came here for, and we build the rest of the day around it.",
+    "cardDuration": "You decide",
+    "cardGroup": "Private, just your people",
+    "cardPrice": "Built to your budget",
+    "cardCta": "Start building",
+    "title": "Create your own experience",
+    "close": "Close",
+    "step1Eyebrow": "Step 1 of 2",
+    "step1Title": "What do you really want to see?",
+    "step1Body": "Pick the main thing. Everything else gets planned around it.",
+    "from": "from",
+    "back": "Pick something else",
+    "step2Title": "Want to add anything?",
+    "step2Body": "These all work well with what you picked. Choose as many as you like, or none at all.",
+    "estimate": "Estimated total",
+    "extras": "{count} added",
+    "estimateNote": "A rough estimate for the whole group, not per person. I confirm the real price once we talk through dates and numbers.",
+    "ctaWhatsApp": "Send this on WhatsApp",
+    "ctaEmail": "Send this by email",
+    "mailSubject": "My custom experience",
+    "summaryIntro": "Hi Kat, I'd like to build a day around",
+    "summaryAddOns": "I'd also like to add:",
+    "summaryNoAddOns": "Just that for now.",
+    "summaryEstimate": "The builder estimated"
   }
 }

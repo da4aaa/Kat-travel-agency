@@ -4,6 +4,7 @@ import {useState, useRef, useEffect} from 'react';
 import {ChevronDown, MessageCircle, Mail} from 'lucide-react';
 import {useTranslations} from 'next-intl';
 import {Button} from './Button';
+import {mailLink, waLink} from '@/lib/contact';
 
 interface ContactDropdownProps {
   tourName?: string;
@@ -12,8 +13,6 @@ interface ContactDropdownProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-const WA_PHONE = '52XXXXXXXXXX';
-const EMAIL = 'kat@[yourdomain].com';
 
 export function ContactDropdown({
   tourName,
@@ -45,7 +44,7 @@ export function ContactDropdown({
     const message = tourName
       ? `Hi Kat, I'm interested in the tour: ${tourName}`
       : "Hi Kat, I'm interested in a tour";
-    return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(message)}`;
+    return waLink(message);
   };
 
   const getEmailUrl = () => {
@@ -53,7 +52,7 @@ export function ContactDropdown({
     const body = tourName
       ? `Hi Kat,\n\nI'm interested in learning more about the ${tourName} tour.\n\nThanks!`
       : "Hi Kat,\n\nI'm interested in booking a tour.\n\nThanks!";
-    return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return mailLink(subject, body);
   };
 
   return (

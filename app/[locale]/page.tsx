@@ -29,8 +29,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <section id="tours"><FeaturedTours /></section>
       <section id="reviews"><ReviewsSlider /></section>
+      <section id="tours"><FeaturedTours /></section>
       <section id="about"><WhyKat /></section>
       <Gallery />
       <FinalCTA />

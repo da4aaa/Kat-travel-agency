@@ -2,13 +2,7 @@
 
 import {motion, useReducedMotion} from 'framer-motion';
 
-const PHONE_NUMBER = '52-XXX-XXX-XXXX';
-const WA_PHONE = '52XXXXXXXXXX';
-
-function getWhatsAppUrl(message: string) {
-  const text = encodeURIComponent(message);
-  return `https://wa.me/${WA_PHONE}?text=${text}`;
-}
+import {PHONE_DISPLAY, waLink} from '@/lib/contact';
 
 function WhatsAppIcon({className = ''}: {className?: string}) {
   return (
@@ -35,10 +29,10 @@ export function WhatsAppButton() {
 
   return (
     <motion.a
-      href={getWhatsAppUrl("Hi Kat, I'm interested in a tour")}
+      href={waLink("Hi Kat, I'm interested in a tour")}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Chat with Kat on WhatsApp (${PHONE_NUMBER})`}
+      aria-label={`Chat with Kat on WhatsApp (${PHONE_DISPLAY})`}
       className="fixed bottom-5 right-5 z-50 group"
       initial={false}
       animate={

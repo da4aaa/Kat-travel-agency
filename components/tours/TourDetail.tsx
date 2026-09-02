@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
-import {MapPin, Users, Clock, Car} from 'lucide-react';
+import {MapPin, Clock, Car} from 'lucide-react';
 
 import type {Tour} from '@/data/tours';
 import {BookTourButton} from '@/components/shared/BookTourButton';
 import {ContactDropdown} from '@/components/shared/ContactDropdown';
 import {TourTabs} from './TourTabs';
 import {TourCard} from './TourCard';
+import {HeroVideo} from './HeroVideo';
 
 export function TourDetail({
   tour,
@@ -21,14 +22,24 @@ export function TourDetail({
     <div className="pt-24 bg-bg">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" aria-hidden="true">
-          <Image
-            src={tour.image.src}
-            alt={tour.image.alt}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
+          {tour.video ? (
+            <HeroVideo
+              src={tour.video.src}
+              poster={tour.video.poster}
+              alt={tour.image.alt}
+              objectPosition={tour.video.objectPosition}
+              priority
+            />
+          ) : (
+            <Image
+              src={tour.image.src}
+              alt={tour.image.alt}
+              fill
+              className="object-cover [object-position:center_65%]"
+              priority
+              sizes="100vw"
+            />
+          )}
           <div
             className="absolute inset-0"
             style={{
@@ -43,7 +54,7 @@ export function TourDetail({
             <h1 className="text-4xl leading-[1.0] text-white md:text-6xl">
               {tour.name}
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-white/90 md:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-white md:text-lg">
               {tour.tagline}
             </p>
           </div>
@@ -52,30 +63,23 @@ export function TourDetail({
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pt-0 pb-32">
-        <div className="-mt-11 mb-10 grid gap-3 rounded-3xl border border-text/10 bg-white p-5 shadow-md relative z-10 md:grid-cols-4">
+        <div className="-mt-11 mb-10 grid gap-3 rounded-3xl border border-text/10 bg-white p-5 shadow-md relative z-10 md:grid-cols-3">
           <div className="flex items-center gap-3 text-text">
-            <Clock className="h-5 w-5 text-accent" aria-hidden="true" />
+            <Clock className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-muted">{t('tour.badge.duration')}</div>
               <div className="text-sm font-medium text-text">{tour.duration}</div>
             </div>
           </div>
           <div className="flex items-center gap-3 text-text">
-            <Users className="h-5 w-5 text-accent" aria-hidden="true" />
-            <div>
-              <div className="text-xs text-text-muted">{t('tour.badge.group')}</div>
-              <div className="text-sm font-medium text-text">{tour.groupSize}</div>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 text-text">
-            <Car className="h-5 w-5 text-accent" aria-hidden="true" />
+            <Car className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-muted">{t('tourDetail.transportIncluded')}</div>
               <div className="text-sm font-medium text-text">{t('trust.based.subtitle')}</div>
             </div>
           </div>
           <div className="flex items-center gap-3 text-text">
-            <MapPin className="h-5 w-5 text-accent" aria-hidden="true" />
+            <MapPin className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-muted">{t('tour.card.from')}</div>
               <div className="text-sm font-medium text-text">${tour.price}</div>
@@ -89,16 +93,25 @@ export function TourDetail({
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {tour.gallery.map((img) => (
               <div
-                key={img.src}
+                key={img.video ?? img.src}
                 className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-text/10"
               >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                {img.video ? (
+                  <HeroVideo
+                    src={img.video}
+                    poster={img.src}
+                    alt={img.alt}
+                    objectPosition={img.objectPosition}
+                  />
+                ) : (
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                )}
               </div>
             ))}
           </div>

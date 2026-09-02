@@ -21,9 +21,27 @@ export type Tour = {
     src: string;
     alt: string;
   };
+  /**
+   * Optional looping background video for the page hero. `poster` is the frame
+   * shown before it plays and the fallback when motion is reduced.
+   * `objectPosition` tunes the crop - it matters for portrait footage, where a
+   * full-bleed hero can only show a horizontal band of the frame.
+   */
+  video?: {
+    src: string;
+    poster: string;
+    objectPosition?: string;
+  };
   gallery: Array<{
+    /** Still image. When `video` is set this doubles as the poster frame. */
     src: string;
     alt: string;
+    /**
+     * Optional looping clip for this tile. `objectPosition` tunes the crop,
+     * which matters for portrait footage in a landscape tile.
+     */
+    video?: string;
+    objectPosition?: string;
   }>;
 };
 
@@ -48,25 +66,37 @@ export const tours: Tour[] = [
     included: ['Private transport', 'Snorkel gear', 'Life jackets', 'Guide', 'All entrance fees'],
     notIncluded: ['Meals', 'Gratuity'],
     image: {
-      // TODO: Replace with real photo
-      src: '/tours/snorkeling.jpg',
-      alt: 'Snorkeling in turquoise water in Mexico'
+      src: '/tours/snorkeling/hero-turtle-surfacing.jpg',
+      alt: 'Sea turtle surfacing for air with the palm-lined shoreline behind'
     },
     gallery: [
       {
-        // TODO: Replace with real photo
-        src: '/tours/cenote-underwater.jpg',
-        alt: 'Underwater snorkeling scene'
+        src: '/tours/snorkeling/getting-ready.jpg',
+        alt: 'Two guests in life jackets fitting their snorkel masks in shallow water by the beach'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/cenote-light.jpg',
-        alt: 'Cenote pool with light beams'
+        src: '/tours/snorkeling/snorkeler-underwater.jpg',
+        alt: 'Snorkeler underwater giving a peace sign to the camera'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/sea-turtle.jpg',
-        alt: 'Sea turtle underwater'
+        src: '/tours/snorkeling/turtle-swimming.jpg',
+        alt: 'Green sea turtle gliding over the sandy seabed in clear shallow water'
+      },
+      {
+        src: '/tours/snorkeling/turtle-surfacing.jpg',
+        alt: 'Sea turtle surfacing for air with the palm-lined shoreline behind'
+      },
+      {
+        src: '/tours/snorkeling/cenote-entrance.jpg',
+        alt: 'Jungle cenote entrance with clear green water below a limestone overhang'
+      },
+      {
+        src: '/tours/snorkeling/cenote-open-swim.jpg',
+        alt: 'Snorkeler floating across an open jungle cenote ringed by palms'
+      },
+      {
+        src: '/tours/snorkeling/cenote-cave-swimmers.jpg',
+        alt: 'Two snorkelers swimming through a cave cenote among hanging stalactites'
       }
     ]
   },
@@ -89,25 +119,49 @@ export const tours: Tour[] = [
     included: ['Private transport', 'All entrance fees', 'Zip line', 'Guide'],
     notIncluded: ['Meals', 'Gratuity'],
     image: {
-      // TODO: Replace with real photo
-      src: '/tours/mayan-ruins.jpg',
-      alt: 'Mayan ruins surrounded by jungle'
+      src: '/tours/coba/hero-temple-doorway.jpg',
+      alt: 'Guest silhouetted in the stone passageway of a Mayan temple'
     },
     gallery: [
       {
-        // TODO: Replace with real photo
-        src: '/tours/stone-ruins.jpg',
-        alt: 'Stone ruins in Mexico'
+        src: '/tours/coba/coba-path.jpg',
+        alt: 'Two guests walking the shaded main path into the Cobá site'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/jungle-canopy.jpg',
-        alt: 'Jungle canopy view'
+        src: '/tours/coba/jungle-trail.jpg',
+        alt: 'Small group following a narrow jungle trail between the ruins'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/zipline.jpg',
-        alt: 'Zip line through jungle'
+        src: '/tours/coba/coba-ruins.jpg',
+        alt: 'Stone temple at Cobá framed by palm fronds'
+      },
+      {
+        src: '/tours/coba/nohoch-mul-pyramid.jpg',
+        alt: 'Guest standing at the foot of the Nohoch Mul pyramid'
+      },
+      {
+        src: '/tours/coba/pyramid-summit-view.jpg',
+        alt: 'Guest at the top of the pyramid with jungle stretching to the horizon'
+      },
+      {
+        src: '/tours/coba/temple-doorway.jpg',
+        alt: 'Guest silhouetted in the stone passageway of a Mayan temple'
+      },
+      {
+        src: '/tours/coba/spider-monkeys.jpg',
+        alt: 'Two spider monkeys moving through the branches overhead'
+      },
+      {
+        src: '/tours/coba/mayan-ceremony.jpg',
+        alt: 'Mayan elder performing a copal blessing ceremony'
+      },
+      {
+        src: '/tours/coba/cenote-climb.jpg',
+        alt: 'Guest climbing the wooden ladder out of a jungle cenote'
+      },
+      {
+        src: '/tours/coba/zipline-lagoon.jpg',
+        alt: 'Guest riding a zipline across the lagoon at Cobá'
       }
     ]
   },
@@ -130,66 +184,48 @@ export const tours: Tour[] = [
     included: ['Private transport', 'Entrance fees', 'Guide', 'All fees'],
     notIncluded: ['Meals', 'Gratuity'],
     image: {
-      // TODO: Replace with real photo
-      src: '/tours/cenote-light.jpg',
-      alt: 'Cenote in the Riviera Maya'
+      src: '/tours/tulum/hero-palace-palms.jpg',
+      alt: 'Stone palace at the Tulum ruins framed by palm trees'
+    },
+    video: {
+      src: '/tours/tulum/hero.mp4',
+      poster: '/tours/tulum/sea-clip-poster.jpg',
+      // Portrait 9:16 footage in a wide hero, so only a band of it is visible.
+      // 60% lands on the surf line rather than the empty sky at the top.
+      objectPosition: 'center 60%'
     },
     gallery: [
       {
-        // TODO: Replace with real photo
-        src: '/tours/tulum-sea.jpg',
-        alt: 'Tulum ruins by the sea'
+        src: '/tours/tulum/sea-clip-poster.jpg',
+        alt: 'The Caribbean seen from the cliffs at Tulum',
+        video: '/tours/tulum/hero.mp4',
+        // Portrait 9:16 footage in a 4:3 tile, so only a band shows.
+        // 60% lands on the surf line rather than the empty sky at the top.
+        objectPosition: 'center 60%'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/snorkeling.jpg',
-        alt: 'Turquoise water'
+        src: '/tours/tulum/cliff-temple.jpg',
+        alt: 'The cliff-top temple at Tulum above the turquoise Caribbean'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/jungle-path.jpg',
-        alt: 'Jungle path'
-      }
-    ]
-  },
-  {
-    slug: 'ek-balam-express',
-    name: 'Ek Balam: The Ruin Most People Walk Past',
-    tagline: 'Climb one of the Yucatán\'s tallest pyramids. Almost no crowds. Carvings that still have their original color.',
-    description: "Everyone goes to Chichen Itza. Almost no one goes to Ek Balam. That's the point. This is a Mayan city that feels genuinely abandoned — intricate carvings, a pyramid you can climb to the top of, and views across the jungle canopy in every direction. I've been bringing people here for years because the experience is everything the famous sites promise but rarely deliver: space, silence, and the feeling that you actually discovered something.",
-    duration: '7 hours',
-    groupSize: 'Up to 10',
-    price: 722,
-    categories: ['full-day', 'history-ruins'],
-    highlights: [
-      'Ek Balam — stunning, uncrowded, and still largely unexcavated',
-      'Climb one of the tallest accessible pyramids in the Yucatán',
-      '360° panoramic views across unbroken jungle',
-      'Original Mayan carvings with intact color — incredibly rare',
-      'Small group, private guide, no tour bus in sight'
-    ],
-    included: ['Private transport', 'Entrance fees', 'Guide', 'All fees'],
-    notIncluded: ['Meals', 'Gratuity'],
-    image: {
-      // TODO: Replace with real photo
-      src: '/tours/pyramid.jpg',
-      alt: 'Ancient stone pyramid in Mexico'
-    },
-    gallery: [
-      {
-        // TODO: Replace with real photo
-        src: '/tours/pyramid.jpg',
-        alt: 'Mayan pyramid'
+        src: '/tours/tulum/el-castillo.jpg',
+        alt: 'El Castillo, the main pyramid at Tulum, under dramatic cloud'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/sea-turtle.jpg',
-        alt: 'Underwater scene'
+        src: '/tours/tulum/palace-palms.jpg',
+        alt: 'Stone palace at the Tulum ruins framed by palm trees'
       },
       {
-        // TODO: Replace with real photo
-        src: '/tours/limestone-ruins.jpg',
-        alt: 'Limestone ruins and carvings'
+        src: '/tours/tulum/columned-hall.jpg',
+        alt: 'Standing columns inside a roofless Mayan hall at Tulum'
+      },
+      {
+        src: '/tours/tulum/stucco-carving.jpg',
+        alt: 'Carved stucco mask on a temple corner, original pigment still visible'
+      },
+      {
+        src: '/tours/tulum/iguana.jpg',
+        alt: 'Iguana basking on a thatched roof against a deep blue sky'
       }
     ]
   },

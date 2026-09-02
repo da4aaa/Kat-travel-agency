@@ -1,5 +1,7 @@
 import {Mail, MapPin, MessageCircle} from 'lucide-react';
 
+import {EMAIL, waLink} from '@/lib/contact';
+
 export function ContactStrip() {
   return (
     <section id="contact" className="bg-text py-12 px-6">
@@ -7,7 +9,7 @@ export function ContactStrip() {
         <p className="font-serif text-2xl text-white">Kat B.</p>
         <div className="flex flex-wrap justify-center gap-8 text-sm text-white/60">
           <a
-            href="https://wa.me/52XXXXXXXXXX"
+            href={waLink("Hi Kat, I'm interested in a tour")}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-white transition-colors"
@@ -16,11 +18,11 @@ export function ContactStrip() {
             WhatsApp
           </a>
           <a
-            href="mailto:kat@yourdomain.com"
+            href={`mailto:${EMAIL}`}
             className="flex items-center gap-2 hover:text-white transition-colors"
           >
             <Mail className="h-4 w-4" />
-            kat@yourdomain.com
+            {EMAIL}
           </a>
           <span className="flex items-center gap-2">
             <MapPin className="h-4 w-4" />

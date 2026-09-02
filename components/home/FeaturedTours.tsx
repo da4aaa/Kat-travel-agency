@@ -5,6 +5,7 @@ import {Link} from '@/i18n/navigation';
 import {AnimatedSection} from '@/components/shared/AnimatedSection';
 import {SectionHeading} from '@/components/shared/SectionHeading';
 import {TourCard} from '@/components/tours/TourCard';
+import {ExperienceBuilderCard} from '@/components/tours/ExperienceBuilderCard';
 import {Button} from '@/components/shared/Button';
 
 export function FeaturedTours() {
@@ -26,6 +27,7 @@ export function FeaturedTours() {
         {featured.map((tour) => (
           <TourCard key={tour.slug} tour={tour} />
         ))}
+        <ExperienceBuilderCard />
       </div>
     </AnimatedSection>
   );

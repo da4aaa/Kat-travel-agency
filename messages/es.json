@@ -60,7 +60,10 @@
   },
   "gallery": {
     "eyebrow": "Momentos Capturados",
-    "title": "Aventuras en la Riviera Maya"
+    "title": "Aventuras en la Riviera Maya",
+    "close": "Cerrar",
+    "prev": "Foto anterior",
+    "next": "Foto siguiente"
   },
   "tour": {
     "badge": {
@@ -203,5 +206,32 @@
     "bookThis": "Reservar Este Tour",
     "askWhatsapp": "Hacer una Pregunta (WhatsApp)",
     "related": "Otros Tours Que Te Pueden Gustar"
+  },
+  "builder": {
+    "cardTitle": "Crea tu propia experiencia",
+    "cardTagline": "Elige lo que de verdad viniste a ver y armamos el resto del día alrededor de eso.",
+    "cardDuration": "Tú decides",
+    "cardGroup": "Privado, solo tu gente",
+    "cardPrice": "Ajustado a tu presupuesto",
+    "cardCta": "Empezar a armar",
+    "title": "Crea tu propia experiencia",
+    "close": "Cerrar",
+    "step1Eyebrow": "Paso 1 de 2",
+    "step1Title": "¿Qué es lo que más quieres ver?",
+    "step1Body": "Elige lo principal. Todo lo demás se planea alrededor de eso.",
+    "from": "desde",
+    "back": "Elegir otra cosa",
+    "step2Title": "¿Quieres agregar algo más?",
+    "step2Body": "Todo esto combina bien con lo que elegiste. Agrega lo que quieras, o nada.",
+    "estimate": "Total estimado",
+    "extras": "{count} agregados",
+    "estimateNote": "Un estimado aproximado para todo el grupo, no por persona. Confirmo el precio real cuando hablemos de fechas y número de personas.",
+    "ctaWhatsApp": "Enviar por WhatsApp",
+    "ctaEmail": "Enviar por correo",
+    "mailSubject": "Mi experiencia personalizada",
+    "summaryIntro": "Hola Kat, me gustaría armar un día alrededor de",
+    "summaryAddOns": "También me gustaría agregar:",
+    "summaryNoAddOns": "Por ahora solo eso.",
+    "summaryEstimate": "El estimado fue de"
   }
 }

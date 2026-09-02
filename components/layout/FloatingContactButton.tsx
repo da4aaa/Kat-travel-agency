@@ -5,8 +5,7 @@ import {motion, useReducedMotion} from 'framer-motion';
 import {MessageCircle, Mail} from 'lucide-react';
 import {useTranslations} from 'next-intl';
 
-const WA_PHONE = '52XXXXXXXXXX';
-const EMAIL = 'kat@[yourdomain].com';
+import {mailLink, waLink} from '@/lib/contact';
 
 export function FloatingContactButton() {
   const t = useTranslations();
@@ -32,13 +31,13 @@ export function FloatingContactButton() {
 
   const getWhatsAppUrl = () => {
     const message = "Hi Kat, I'm interested in a tour";
-    return `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(message)}`;
+    return waLink(message);
   };
 
   const getEmailUrl = () => {
     const subject = 'Tour Inquiry';
     const body = "Hi Kat,\n\nI'm interested in booking a tour.\n\nThanks!";
-    return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return mailLink(subject, body);
   };
 
   return (

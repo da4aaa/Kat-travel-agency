@@ -45,15 +45,7 @@ Local typed data sources:
 Palette + tokens are defined in `app/globals.css` as CSS variables (e.g. `--color-accent`, `--color-surface`) and exposed to Tailwind via `@theme inline`.
 
 ## Customization checklist
-- **WhatsApp number**: currently hardcoded placeholders (`52XXXXXXXXXX` / `+52-XXX-XXX-XXXX`) in:
-  - `components/layout/WhatsAppButton.tsx`
-  - `components/home/Hero.tsx`
-  - `components/home/FinalCTA.tsx`
-  - `components/tours/TourDetail.tsx`
-  - `app/[locale]/services/page.tsx`
-  - `app/[locale]/contact/page.tsx`
-
-  Replace those with the real number, or refactor into a single shared constant.
+- **Contact details**: WhatsApp number, display number and email all live in `lib/contact.ts`. Change them there only - every CTA imports from it via the `waLink()` / `mailLink()` helpers. `WA_PHONE` must be international digits only (country code + number, no `+`, spaces or dashes).
 - **Domain / metadataBase**: update `metadataBase` in `app/layout.tsx` (currently `https://yourdomain.com`).
 - **OG image**: metadata references `/og-image.jpg` (not included yet). Add a real file at `public/og-image.jpg`.
 - **Photos**: placeholder photography uses Unsplash image URLs. Search for `TODO: Replace with real photo`.

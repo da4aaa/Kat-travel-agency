@@ -9,13 +9,25 @@ import {Button} from '@/components/shared/Button';
 
 const SLIDES = [
   {
-    src: '/the-travel-nook-2FoqQ0EPwLg-unsplash.jpg',
-    alt: 'Turquoise waters and beach in Playa del Carmen'
+    src: '/hero/coba-pyramid.jpg',
+    alt: 'Couple resting on a log in front of the Coba pyramid'
   },
   {
-    src: '/hero-beach-sunset.jpg',
-    alt: 'Sunset over a calm beach in the Riviera Maya'
+    src: '/hero/cenote-cave.jpg',
+    alt: 'Swimmer beside the turquoise water of an underground cenote'
   },
+  {
+    src: '/hero/sea-turtle.jpg',
+    alt: 'Sea turtle surfacing in clear Caribbean water off the coast'
+  },
+  {
+    src: '/hero/cenote-ladder.jpg',
+    alt: 'Guest climbing the wooden ladder out of a jungle cenote'
+  },
+  {
+    src: '/hero/zipline-cenote.jpg',
+    alt: 'Zipline ride over a cenote surrounded by jungle'
+  }
 ];
 
 const INTERVAL = 5000;

@@ -32,7 +32,8 @@ html { scroll-behavior: smooth; }
   --color-white: var(--color-white);
 
   --font-sans: var(--font-body);
-  --font-serif: var(--font-display);
+  /* Tailwind's font-serif utility - carries the "Kat B." wordmark. */
+  --font-serif: var(--font-heading);
 }
 
 body {
@@ -47,13 +48,18 @@ body {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-family: var(--font-heading), "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  /* Oswald is already condensed - the negative tracking Lora needed makes it cramped. */
+  letter-spacing: 0;
 }
 
-p {
-  color: var(--color-text);
+/* In @layer base so Tailwind text-* utilities (e.g. the white hero tagline on
+   tour pages) win over this default instead of being silently overridden. */
+@layer base {
+  p {
+    color: var(--color-text);
+  }
 }
 
 @keyframes btn-pulse {

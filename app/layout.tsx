@@ -1,10 +1,11 @@
 import type {Metadata} from 'next';
-import {DM_Sans, Lora} from 'next/font/google';
+import {DM_Sans, Oswald} from 'next/font/google';
 
 import './globals.css';
 
-const display = Lora({
-  variable: '--font-display',
+/** Headings (h1/h2/h3) and the "Kat B." wordmark. */
+const heading = Oswald({
+  variable: '--font-heading',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap'
@@ -33,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${display.variable} ${body.variable} antialiased`}
+        className={`${heading.variable} ${body.variable} antialiased`}
       >
         {children}
       </body>
