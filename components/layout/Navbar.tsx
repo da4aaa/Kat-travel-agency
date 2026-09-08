@@ -39,7 +39,7 @@ export function Navbar() {
   const t = useTranslations();
   const pathname = usePathname();
 
-  // next-intl's usePathname strips the locale — home is always '/'
+  // next-intl's usePathname strips the locale - home is always '/'
   const isHome = useMemo(() => pathname === '/', [pathname]);
 
   const {open: openModal} = useBookingModal();
@@ -75,8 +75,8 @@ export function Navbar() {
 
       <div
         className={[
-          'mx-auto max-w-7xl px-6 transition-all duration-300',
-          scrolled ? 'pt-3' : 'pt-5'
+          'mx-auto max-w-7xl px-4 md:px-6 transition-all duration-300',
+          scrolled ? 'pt-2 md:pt-3' : 'pt-3 md:pt-5'
         ].join(' ')}
       >
         <div
@@ -87,12 +87,12 @@ export function Navbar() {
               : 'bg-transparent border-transparent'
           ].join(' ')}
         >
-          <div className="flex items-center justify-between px-6 py-3">
+          <div className="flex items-center justify-between px-4 py-2 md:px-6 md:py-3">
             <div className="flex items-center gap-6">
               <Link
                 href="/"
                 className={[
-                  'font-serif text-xl tracking-tight transition-colors duration-300',
+                  'font-serif text-lg md:text-xl tracking-tight transition-colors duration-300',
                   transparent ? 'text-white' : 'text-text'
                 ].join(' ')}
                 aria-label="Kat B. Home"
@@ -123,7 +123,7 @@ export function Navbar() {
               <button
                 type="button"
                 className={[
-                  'md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-300',
+                  'md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300',
                   transparent
                     ? 'border-white/40 text-white hover:bg-white/15'
                     : 'border-white/40 bg-white/70 backdrop-blur-md text-text hover:bg-white/90'

@@ -10,9 +10,9 @@
     "bookNow": "Book a Tour"
   },
   "hero": {
-    "headline": "Your private guide to the Riviera Maya",
+    "headline": "You bring the curiosity. I'll take care of the rest.",
     "accentWord": "private",
-    "subheadline": "I've spent 8 years learning which cenote has no crowds at 9am, which ruins the tour buses skip, and which stretch of jungle feels like no one's been there in a century. I share all of it — just with your group.",
+    "subheadline": "Private tours around the Riviera Maya, built around your group, your pace, and the places you'll remember.",
     "cta": {
       "book": "See the tours",
       "whatsapp": "WhatsApp me"
@@ -40,18 +40,20 @@
   "whyKat": {
     "eyebrow": "Meet your guide",
     "title": "Do you love exploring as much as I do? Let me show you around!",
-    "local": {
-      "title": "Hi, I'm Kat",
-      "body": "I'm your private tour guide in the Riviera Maya and Yucatan. I specialize in organizing private adventures for families, couples, groups of friends and corporate teams. Whether you are a nature lover, a history enthusiast, or simply seeking a unique adventure, I have a tour for you. Don't see the perfect combination of attractions? Let me customize your adventure."
-    },
-    "private": {
-      "title": "Originally from Estonia",
-      "body": "I've been temporarily adopted by the USA and then Australia. After travelling around the US, Europe, Asia and Australia I came to Mexico for a vacation and never left. I fell in love with its breathtaking beaches and cenotes, its rich culture and history and most importantly with its vibrant people. It's been 11 years and I've never looked back."
-    },
-    "languages": {
-      "title": "There is so much to see",
-      "body": "I can take you to the jungle to search for wild monkeys or to plunge into crystal clear waters of cenotes, to explore the mysteries of the Maya civilization and colorful colonial cities, or to snorkel with whale sharks and sea turtles. I am meticulous about providing the best service while showing you the hidden gems of the Riviera Maya and the Yucatan Peninsula."
-    }
+    "paragraphs": [
+      "Hi, my name is Kat. I'm your private tour guide in the Riviera Maya and Yucatan, specializing in personalized adventures for families, couples, groups of friends and corporate teams.",
+      "Whether you're a nature lover, a history enthusiast, an adventurous soul, or simply looking for a different way to experience Mexico, I have a tour for you. And if you don't see the perfect combination of places and activities on my list, no problem. Tell me what you have in mind and let's create your adventure together.",
+      "Originally from Estonia, I was temporarily adopted by the USA and then Australia before eventually finding my way to Mexico. After traveling around the US, Europe, Asia and Australia, I came to Mexico for a vacation... and never left.",
+      "I fell in love with its breathtaking beaches and cenotes, its rich culture and history, and most importantly, its vibrant people. It's been 13 years now, and I've never looked back.",
+      "I feel very fortunate to be able to share the colors of Mexico with my guests, and there is so much to see. I can take you into the jungle to search for wild monkeys, plunge into the crystal-clear waters of a cenote, explore the mysteries of the Maya civilization and colorful colonial cities, or snorkel with whale sharks and sea turtles. I'll share with you stories of Maya life and Mexican culture, you'll find out how the cenotes were formed and why the sea animals are so amazing!",
+      "I'm meticulous about providing the best service while showing you the hidden gems of the Riviera Maya and the Yucatan Peninsula.",
+      "I'm a certified tour guide, which means I'm authorized to guide inside Mexico's archaeological sites under the regulations of the National Institute of Anthropology and History (INAH).",
+      "I have 13 years of experience guiding snorkeling tours, and I'll make sure you enjoy your time in the water, even if it's your first time snorkeling. I regularly renew my Red Cross First Aid certification.",
+      "I'm also an amateur diver and freediver (PADI Open Water / AIDA 2).",
+      "I'm an amateur photographer, too, and I'm more than happy to help you with pictures during our adventure. After all, someone has to prove you really swam in that cenote.",
+      "So, what would you like to see? Tell me what you have in mind."
+    ],
+    "signoff": "Mucho love,\nKat"
   },
   "featuredTours": {
     "eyebrow": "Handpicked experiences",
@@ -82,12 +84,12 @@
   },
   "finalCta": {
     "title": "Tell me about your trip. I'll figure out the rest.",
-    "body": "Not sure which tour fits your group? Send me a message — when you're arriving, how many people, what excites you. I'll come back with a plan that actually makes sense for you. Most people hear back within the hour.",
+    "body": "Not sure which tour fits your group? Send me a message - when you're arriving, how many people, what excites you. I'll come back with a plan that actually makes sense for you. Most people hear back within the hour.",
     "cta": "Message me on WhatsApp"
   },
   "tours": {
     "title": "Choose your day",
-    "subtitle": "Every tour is private — just your group, your pace, your way. Pick what calls to you, or message me and we'll build something custom.",
+    "subtitle": "Every tour is private - just your group, your pace, your way. Pick what calls to you, or message me and we'll build something custom.",
     "filters": {
       "all": "All tours",
       "cenotes": "Cenotes & snorkeling",
@@ -98,18 +100,18 @@
   },
   "services": {
     "title": "Everything you need, taken care of",
-    "subtitle": "From the moment you land to the moment you're back at your hotel — here's what I do beyond the standard tours.",
+    "subtitle": "From the moment you land to the moment you're back at your hotel - here's what I do beyond the standard tours.",
     "private": {
       "title": "100% private, always",
-      "body": "No strangers, no shared vans, no waiting for people you've never met. Every experience is exclusively your group — family, friends, partners. We move when you're ready."
+      "body": "No strangers, no shared vans, no waiting for people you've never met. Every experience is exclusively your group - family, friends, partners. We move when you're ready."
     },
     "transport": {
       "title": "Door-to-door transport",
-      "body": "I pick you up and drop you off at your hotel or resort in Playa del Carmen, Tulum, Puerto Aventuras, or Akumal. Air-conditioned comfort the whole way — no taxis to figure out."
+      "body": "I pick you up and drop you off at your hotel or resort in Playa del Carmen, Tulum, Puerto Aventuras, or Akumal. Air-conditioned comfort the whole way - no taxis to figure out."
     },
     "languages": {
       "title": "Guided in your language",
-      "body": "English, Spanish, Russian — fluently, not conversationally. If your group speaks a mix, everyone gets the full experience. No one gets the short version."
+      "body": "English, Spanish, Russian - fluently, not conversationally. If your group speaks a mix, everyone gets the full experience. No one gets the short version."
     },
     "custom": {
       "title": "Built around you",
@@ -120,38 +122,38 @@
     "title": "Good questions",
     "q1": {
       "question": "How far in advance should I book?",
-      "answer": "At least a week ahead is ideal, especially December through April when the Riviera Maya is at its busiest. That said, if I have availability, I'll always try to make last-minute work — just message me."
+      "answer": "At least a week ahead is ideal, especially December through April when the Riviera Maya is at its busiest. That said, if I have availability, I'll always try to make last-minute work - just message me."
     },
     "q2": {
       "question": "Do you provide snorkeling gear?",
-      "answer": "Yes — masks, fins, and life jackets for everyone in your group, all included. You don't need to bring or rent anything."
+      "answer": "Yes - masks, fins, and life jackets for everyone in your group, all included. You don't need to bring or rent anything."
     },
     "q3": {
       "question": "Can you pick us up from our resort?",
-      "answer": "Absolutely. I pick up from Playa del Carmen, Tulum, Puerto Aventuras, and Akumal at no extra charge. Cancún pickups are possible too — just ask and I'll let you know if there's a small transport fee."
+      "answer": "Absolutely. I pick up from Playa del Carmen, Tulum, Puerto Aventuras, and Akumal at no extra charge. Cancún pickups are possible too - just ask and I'll let you know if there's a small transport fee."
     },
     "q4": {
-      "question": "We're traveling with young kids — is that okay?",
+      "question": "We're traveling with young kids - is that okay?",
       "answer": "Completely. Some of my favorite tours are with families. I know which cenotes are calm and shallow for little ones, and I'll make sure the pace works for everyone. Just tell me the ages and I'll recommend the right experience."
     },
     "q5": {
       "question": "Can we build a custom tour?",
-      "answer": "Yes, and it's honestly my favorite thing to do. Tell me what excites your group — ruins, cenotes, wildlife, food, all of the above — and I'll design a day around exactly that."
+      "answer": "Yes, and it's honestly my favorite thing to do. Tell me what excites your group - ruins, cenotes, wildlife, food, all of the above - and I'll design a day around exactly that."
     },
     "q6": {
       "question": "Is lunch included?",
-      "answer": "It depends on the tour — some include a local meal, others don't. Either way, I always know the best spots nearby and I'll point you in the right direction. You won't eat at a tourist trap on my watch."
+      "answer": "It depends on the tour - some include a local meal, others don't. Either way, I always know the best spots nearby and I'll point you in the right direction. You won't eat at a tourist trap on my watch."
     }
   },
   "about": {
     "title": "Hi, I'm Kat",
-    "intro": "I came to the Riviera Maya for a summer. That was 8 years ago. I fell in love with the cenotes, the ruins, the jungle, the people — and I never left. These days I spend my time taking small groups of travelers to the places I love most, the way I'd show them to a close friend.",
+    "intro": "I came to the Riviera Maya for a summer. That was 8 years ago. I fell in love with the cenotes, the ruins, the jungle, the people - and I never left. These days I spend my time taking small groups of travelers to the places I love most, the way I'd show them to a close friend.",
     "why": "Why I do this",
-    "whyBody": "Most tours are designed for efficiency — get people in, move them through, get them out. I've always wanted the opposite. I want you to leave feeling like you actually saw something real. Like you touched the wall of a ruin and thought about who built it. Like you floated in a cenote and forgot, for a minute, that the rest of the world existed.",
+    "whyBody": "Most tours are designed for efficiency - get people in, move them through, get them out. I've always wanted the opposite. I want you to leave feeling like you actually saw something real. Like you touched the wall of a ruin and thought about who built it. Like you floated in a cenote and forgot, for a minute, that the rest of the world existed.",
     "experience": "What I bring",
-    "experienceBody": "Eight years of guiding in English, Spanish, and Russian. Deep knowledge of Mayan archaeology, local ecology, and the hidden corners of the Riviera Maya most visitors never find. I'm a certified guide — but more than that, I'm someone who genuinely loves this place and wants you to love it too.",
+    "experienceBody": "Eight years of guiding in English, Spanish, and Russian. Deep knowledge of Mayan archaeology, local ecology, and the hidden corners of the Riviera Maya most visitors never find. I'm a certified guide - but more than that, I'm someone who genuinely loves this place and wants you to love it too.",
     "promise": "My promise to you",
-    "promiseBody": "You will never feel rushed. You will never be just a number. Every tour I lead is shaped around your group's pace, energy, and curiosity. Some of my guests come for adventure. Some come for history. Some just want to float in beautiful water and not think about anything. All of that is valid. All of that is possible. This is your day — I'm here to make it unforgettable.",
+    "promiseBody": "You will never feel rushed. You will never be just a number. Every tour I lead is shaped around your group's pace, energy, and curiosity. Some of my guests come for adventure. Some come for history. Some just want to float in beautiful water and not think about anything. All of that is valid. All of that is possible. This is your day - I'm here to make it unforgettable.",
     "reviewsLink": "Read all reviews on ToursByLocals →"
   },
   "contact": {
@@ -162,7 +164,7 @@
     "emailOption": "Within 24 hours",
     "whatsapp": {
       "title": "WhatsApp",
-      "body": "The fastest way to reach me. I reply within the hour most days — sometimes faster. If you're not sure where to start, just say hello.",
+      "body": "The fastest way to reach me. I reply within the hour most days - sometimes faster. If you're not sure where to start, just say hello.",
       "cta": "Message me on WhatsApp"
     },
     "email": {
@@ -171,7 +173,7 @@
     },
     "hours": {
       "title": "Response time",
-      "body": "I'm usually available 8am–8pm Mexico time (GMT-5). If I'm out on a tour, I'll reply as soon as I'm back."
+      "body": "I'm usually available 8am-8pm Mexico time (GMT-5). If I'm out on a tour, I'll reply as soon as I'm back."
     },
     "location": {
       "title": "Based in",
@@ -185,7 +187,7 @@
     "message": "Message",
     "send": "Send message",
     "sending": "Sending...",
-    "success": "Got it — I'll be in touch soon!",
+    "success": "Got it - I'll be in touch soon!",
     "nameRequired": "Name is required",
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email",
@@ -202,7 +204,9 @@
     "highlights": "Highlights",
     "notIncluded": "Not included",
     "gallery": "Gallery",
-    "transportIncluded": "Hotel pickup and drop-off is always included — Playa del Carmen, Tulum, Puerto Aventuras, and Akumal.",
+    "transportIncluded": "Hotel pickup and drop-off is always included - Playa del Carmen, Tulum, Puerto Aventuras, and Akumal.",
+    "transportLabel": "Transport",
+    "transportValue": "Hotel pickup and drop-off included",
     "bookThis": "Book this tour",
     "askWhatsapp": "Ask me a question",
     "related": "Other tours you might like"

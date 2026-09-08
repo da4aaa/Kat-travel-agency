@@ -8,13 +8,13 @@ export const services: Service[] = [
   {
     title: 'Airport Meet & Greet',
     description:
-      "Land and see a familiar face. I'll be at arrivals before your flight touches down — no figuring out taxis, no confusion, no stressful first hour in a new country.",
+      "Land and see a familiar face. I'll be at arrivals before your flight touches down - no figuring out taxis, no confusion, no stressful first hour in a new country.",
     icon: 'plane'
   },
   {
     title: 'Custom Day Design',
     description:
-      "Tell me what your group loves — history, adventure, food, water, all of it — and I'll build a day that actually fits. No preset packages, no compromises.",
+      "Tell me what your group loves - history, adventure, food, water, all of it - and I'll build a day that actually fits. No preset packages, no compromises.",
     icon: 'map'
   },
   {
@@ -26,7 +26,7 @@ export const services: Service[] = [
   {
     title: 'Multi-Day Yucatán Trips',
     description:
-      "One day is never quite enough. If you want to go deeper — more ruins, more cenotes, more of the Yucatán — I can plan and guide multi-day trips across the entire region.",
+      "One day is never quite enough. If you want to go deeper - more ruins, more cenotes, more of the Yucatán - I can plan and guide multi-day trips across the entire region.",
     icon: 'sunset'
   }
 ];

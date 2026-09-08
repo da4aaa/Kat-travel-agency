@@ -19,7 +19,7 @@ export const metadata = {
     'guía privado playa del carmen'
   ],
   openGraph: {
-    title: 'Kat B. | Private Tour Guide — Playa del Carmen',
+    title: 'Kat B. | Private Tour Guide - Playa del Carmen',
     description: 'Experience the real Mexico with a private guide. Cenotes, ruins, adventure.',
     images: ['/og-image.jpg']
   }

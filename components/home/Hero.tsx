@@ -9,24 +9,24 @@ import {Button} from '@/components/shared/Button';
 
 const SLIDES = [
   {
-    src: '/hero/coba-pyramid.jpg',
-    alt: 'Couple resting on a log in front of the Coba pyramid'
+    src: '/photos/hero/private-tour-riviera-maya.jpg',
+    alt: 'Kat with guests on a private tour in the Riviera Maya'
   },
   {
-    src: '/hero/cenote-cave.jpg',
-    alt: 'Swimmer beside the turquoise water of an underground cenote'
+    src: '/photos/hero/green-sea-turtle-akumal.jpg',
+    alt: 'Green sea turtle gliding through clear Caribbean water at Akumal'
   },
   {
-    src: '/hero/sea-turtle.jpg',
-    alt: 'Sea turtle surfacing in clear Caribbean water off the coast'
+    src: '/photos/hero/underground-cenote-mexico.jpg',
+    alt: 'Light falling into an underground cenote over deep blue water'
   },
   {
-    src: '/hero/cenote-ladder.jpg',
-    alt: 'Guest climbing the wooden ladder out of a jungle cenote'
+    src: '/photos/hero/kat-guiding-coba-ruins.jpg',
+    alt: 'Kat guiding guests through the ancient Maya ruins of Coba'
   },
   {
-    src: '/hero/zipline-cenote.jpg',
-    alt: 'Zipline ride over a cenote surrounded by jungle'
+    src: '/photos/hero/ziplining-riviera-maya-mexico.jpg',
+    alt: 'Zip line ride over a jungle cenote in the Riviera Maya'
   }
 ];
 
@@ -77,7 +77,7 @@ export function Hero() {
         className="absolute inset-0"
         aria-hidden="true"
         style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.55) 100%)'
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.38) 50%, rgba(0,0,0,0.6) 100%)'
         }}
       />
 

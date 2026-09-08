@@ -49,37 +49,34 @@ export function TourDetail({
           />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-28 md:pt-36 md:pb-32">
+        <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-28 md:pt-52 md:pb-44">
           <div className="max-w-3xl">
             <h1 className="text-4xl leading-[1.0] text-white md:text-6xl">
               {tour.name}
             </h1>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-white md:text-lg">
-              {tour.tagline}
-            </p>
           </div>
 
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pt-0 pb-32">
-        <div className="-mt-11 mb-10 grid gap-3 rounded-3xl border border-text/10 bg-white p-5 shadow-md relative z-10 md:grid-cols-3">
-          <div className="flex items-center gap-3 text-text">
-            <Clock className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+        <div className="-mt-11 mb-10 grid gap-4 md:gap-8 rounded-3xl border border-text/10 bg-white p-5 md:p-6 shadow-md relative z-10 md:grid-cols-3">
+          <div className="flex items-start gap-3 text-text">
+            <Clock className="h-5 w-5 shrink-0 -mt-0.5 text-accent" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-muted">{t('tour.badge.duration')}</div>
               <div className="text-sm font-medium text-text">{tour.duration}</div>
             </div>
           </div>
-          <div className="flex items-center gap-3 text-text">
-            <Car className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+          <div className="flex items-start gap-3 text-text">
+            <Car className="h-5 w-5 shrink-0 -mt-0.5 text-accent" aria-hidden="true" />
             <div>
-              <div className="text-xs text-text-muted">{t('tourDetail.transportIncluded')}</div>
-              <div className="text-sm font-medium text-text">{t('trust.based.subtitle')}</div>
+              <div className="text-xs text-text-muted">{t('tourDetail.transportLabel')}</div>
+              <div className="text-sm font-medium text-text">{t('tourDetail.transportValue')}</div>
             </div>
           </div>
-          <div className="flex items-center gap-3 text-text">
-            <MapPin className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+          <div className="flex items-start gap-3 text-text">
+            <MapPin className="h-5 w-5 shrink-0 -mt-0.5 text-accent" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-muted">{t('tour.card.from')}</div>
               <div className="text-sm font-medium text-text">${tour.price}</div>

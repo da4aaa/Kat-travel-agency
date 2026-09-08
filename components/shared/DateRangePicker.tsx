@@ -12,7 +12,7 @@ function fmt(date: Date) {
 function displayValue(range: DateRange | undefined): string {
   if (!range?.from) return '';
   if (!range.to) return fmt(range.from);
-  return `${fmt(range.from)} — ${fmt(range.to)}`;
+  return `${fmt(range.from)} - ${fmt(range.to)}`;
 }
 
 interface Props {

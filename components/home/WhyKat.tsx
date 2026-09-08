@@ -6,17 +6,17 @@ import {SectionHeading} from '@/components/shared/SectionHeading';
 export function WhyKat() {
   const t = useTranslations();
 
-  const blocks = [
-    { title: t('whyKat.local.title'), body: t('whyKat.local.body') },
-    { title: t('whyKat.private.title'), body: t('whyKat.private.body') },
-    { title: t('whyKat.languages.title'), body: t('whyKat.languages.body') },
-  ];
+  const paragraphs = t.raw('whyKat.paragraphs') as string[];
 
-  const TextBlock = ({ title, body }: { title: string; body: string }) => (
-    <div>
-      <h3 className="text-lg font-medium leading-snug mb-2">{title}</h3>
-      <p className="text-sm leading-7 text-gray-600">{body}</p>
-    </div>
+  const Body = () => (
+    <>
+      {paragraphs.map((p, i) => (
+        <p key={i} className="text-base leading-8 text-gray-600">{p}</p>
+      ))}
+      <p className="text-base leading-8 text-gray-600 whitespace-pre-line">
+        {t('whyKat.signoff')}
+      </p>
+    </>
   );
 
   return (
@@ -25,14 +25,14 @@ export function WhyKat() {
       <div className="md:hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/kat-guide.jpg"
+          src="/photos/guide/kat-private-tour-guide-mexico.jpg"
           alt="Kat B., private tour guide, in a stone passageway at the Cobá ruins"
           className="w-full h-[320px] object-cover [object-position:center_40%]"
         />
         <div className="px-6 py-8 bg-white">
           <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} accentPhrase="you around!" />
-          <div className="mt-8 grid gap-6">
-            {blocks.map(b => <TextBlock key={b.title} title={b.title} body={b.body} />)}
+          <div className="mt-8 grid gap-5">
+            <Body />
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ export function WhyKat() {
         <div className="relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/kat-guide.jpg"
+            src="/photos/guide/kat-private-tour-guide-mexico.jpg"
             alt="Kat B., private tour guide, in a stone passageway at the Cobá ruins"
             className="absolute inset-0 w-full h-full object-cover [object-position:center_40%]"
           />
@@ -52,8 +52,8 @@ export function WhyKat() {
         <div className="flex items-center px-12 py-14 lg:px-16 bg-white">
           <div>
             <SectionHeading eyebrow={t('whyKat.eyebrow')} title={t('whyKat.title')} accentPhrase="you around!" />
-            <div className="mt-10 grid gap-8">
-              {blocks.map(b => <TextBlock key={b.title} title={b.title} body={b.body} />)}
+            <div className="mt-10 grid gap-5">
+              <Body />
             </div>
           </div>
         </div>

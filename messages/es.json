@@ -12,7 +12,7 @@
   "hero": {
     "headline": "Tu Guía Privada al México Real",
     "accentWord": "Privada",
-    "subheadline": "Cenotes, ruinas mayas y aventuras en la selva — explorados en privado, a tu manera, con Kat",
+    "subheadline": "Cenotes, ruinas mayas y aventuras en la selva - explorados en privado, a tu manera, con Kat",
     "cta": {
       "book": "Reservar un Tour",
       "whatsapp": "Escríbeme por WhatsApp"
@@ -40,18 +40,12 @@
   "whyKat": {
     "eyebrow": "¿Por Qué Viajar con Kat?",
     "title": "México Como Fue Pensado Para Ser Experimentado",
-    "local": {
-      "title": "Conocimiento Local",
-      "body": "Conozco los cenotes escondidos, las ruinas tranquilas y los lugares que nunca llegan a las guías turísticas. Sin trampas para turistas — solo la verdadera Riviera Maya."
-    },
-    "private": {
-      "title": "100% Privado",
-      "body": "Cada tour es solo tu grupo. Sin extraños, sin apresurarse para seguir el ritmo de una multitud. Vamos a tu ritmo, en tus términos."
-    },
-    "languages": {
-      "title": "3 Idiomas",
-      "body": "Guío en inglés, español y ruso — para que cada miembro de tu grupo se sienta cómodo, comprendido y como en casa."
-    }
+    "paragraphs": [
+      "Conozco los cenotes escondidos, las ruinas tranquilas y los lugares que nunca llegan a las guías turísticas. Sin trampas para turistas - solo la verdadera Riviera Maya.",
+      "Cada tour es solo tu grupo. Sin extraños, sin apresurarse para seguir el ritmo de una multitud. Vamos a tu ritmo, en tus términos.",
+      "Guío en inglés, español y ruso - para que cada miembro de tu grupo se sienta cómodo, comprendido y como en casa."
+    ],
+    "signoff": "Mucho love,\nKat"
   },
   "featuredTours": {
     "eyebrow": "Experiencias Seleccionadas",
@@ -82,7 +76,7 @@
   },
   "finalCta": {
     "title": "¿No Estás Seguro Qué Tour Es El Adecuado Para Ti?",
-    "body": "Dime cuándo llegas, cuántas personas son y qué te emociona — diseñaré la experiencia perfecta para tu grupo.",
+    "body": "Dime cuándo llegas, cuántas personas son y qué te emociona - diseñaré la experiencia perfecta para tu grupo.",
     "cta": "Hablemos por WhatsApp"
   },
   "tours": {
@@ -101,7 +95,7 @@
     "subtitle": "Qué está incluido, cómo hacemos los tours y todo lo que hace que esta experiencia sea fluida.",
     "private": {
       "title": "Tours 100% Privados",
-      "body": "Sin extraños, sin multitudes. Cada tour es exclusivamente tu grupo — familia, amigos, quien traigas. Nos movemos a tu ritmo."
+      "body": "Sin extraños, sin multitudes. Cada tour es exclusivamente tu grupo - familia, amigos, quien traigas. Nos movemos a tu ritmo."
     },
     "transport": {
       "title": "Transporte Incluido",
@@ -109,7 +103,7 @@
     },
     "languages": {
       "title": "Inglés, Español y Ruso",
-      "body": "Guío con fluidez en los tres idiomas. Si tu grupo habla diferentes idiomas, no hay problema — todos reciben la historia completa."
+      "body": "Guío con fluidez en los tres idiomas. Si tu grupo habla diferentes idiomas, no hay problema - todos reciben la historia completa."
     },
     "custom": {
       "title": "Itinerarios Personalizados",
@@ -120,7 +114,7 @@
     "title": "Preguntas Comunes",
     "q1": {
       "question": "¿Con cuánta anticipación debo reservar?",
-      "answer": "Recomiendo reservar al menos una semana antes, especialmente en temporada alta (diciembre–abril). Pero si estoy disponible de último momento, lo haremos realidad."
+      "answer": "Recomiendo reservar al menos una semana antes, especialmente en temporada alta (diciembre-abril). Pero si estoy disponible de último momento, lo haremos realidad."
     },
     "q2": {
       "question": "¿Proporcionas equipo de snorkel?",
@@ -128,7 +122,7 @@
     },
     "q3": {
       "question": "¿Puedes recogernos en nuestro resort?",
-      "answer": "Absolutamente. Recojo en Playa del Carmen, Tulum, Puerto Aventuras y Akumal. La recogida desde Cancún puede tener una tarifa de transporte adicional — solo pregunta."
+      "answer": "Absolutamente. Recojo en Playa del Carmen, Tulum, Puerto Aventuras y Akumal. La recogida desde Cancún puede tener una tarifa de transporte adicional - solo pregunta."
     },
     "q4": {
       "question": "¿Qué pasa si tenemos niños pequeños?",
@@ -136,7 +130,7 @@
     },
     "q5": {
       "question": "¿Podemos personalizar un tour?",
-      "answer": "¡Sí! Dime qué te interesa y diseñaré un itinerario personalizado. Mezcla ruinas, cenotes, vida silvestre, cultura — lo que quieras ver."
+      "answer": "¡Sí! Dime qué te interesa y diseñaré un itinerario personalizado. Mezcla ruinas, cenotes, vida silvestre, cultura - lo que quieras ver."
     },
     "q6": {
       "question": "¿El almuerzo está incluido?",
@@ -145,18 +139,18 @@
   },
   "about": {
     "title": "Hola, Soy Kat",
-    "intro": "He estado guiando tours privados en la Riviera Maya durante más de 8 años. Crecí explorando cenotes, aprendiendo historia maya y enamorándome de este paraíso selvático — y ahora tengo la oportunidad de compartirlo con viajeros de todo el mundo.",
+    "intro": "He estado guiando tours privados en la Riviera Maya durante más de 8 años. Crecí explorando cenotes, aprendiendo historia maya y enamorándome de este paraíso selvático - y ahora tengo la oportunidad de compartirlo con viajeros de todo el mundo.",
     "why": "Por Qué Hago Esto",
     "whyBody": "La mayoría de los tours se sienten apresurados, abarrotados e impersonales. Quería crear lo opuesto: experiencias pequeñas y privadas donde realmente te conectas con el lugar. Sin megáfonos, sin trampas para turistas, solo el México real.",
     "experience": "Lo Que Aporto",
     "experienceBody": "Fluida en inglés, español y ruso. Guía certificada con conocimiento profundo de arqueología maya, ecología local y los mejores lugares escondidos que la Riviera Maya tiene para ofrecer.",
     "promise": "Mi Promesa",
-    "promiseBody": "Nunca te sentirás apresurado. Nunca serás solo otra cara en la multitud. Cada tour que dirijo se construye alrededor del ritmo, intereses y energía de tu grupo. Este es tu día — yo solo estoy aquí para hacerlo inolvidable.",
+    "promiseBody": "Nunca te sentirás apresurado. Nunca serás solo otra cara en la multitud. Cada tour que dirijo se construye alrededor del ritmo, intereses y energía de tu grupo. Este es tu día - yo solo estoy aquí para hacerlo inolvidable.",
     "reviewsLink": "Ver todas las reseñas en ToursByLocals →"
   },
   "contact": {
     "title": "Planifiquemos Tu Aventura",
-    "subtitle": "Dime qué estás pensando y te responderé dentro de 24 horas — generalmente más rápido.",
+    "subtitle": "Dime qué estás pensando y te responderé dentro de 24 horas - generalmente más rápido.",
     "chooseMethod": "Contáctame",
     "instant": "Respuesta instantánea",
     "emailOption": "Dentro de 24 horas",
@@ -171,7 +165,7 @@
     },
     "hours": {
       "title": "Tiempo de Respuesta",
-      "body": "Generalmente respondo dentro de 1–2 horas durante el día (hora de México, GMT-5)."
+      "body": "Generalmente respondo dentro de 1-2 horas durante el día (hora de México, GMT-5)."
     },
     "location": {
       "title": "Ubicada En",
@@ -203,6 +197,8 @@
     "notIncluded": "No Incluido",
     "gallery": "Galería",
     "transportIncluded": "El transporte desde/hacia tu hotel siempre está incluido (Playa del Carmen, Tulum, Puerto Aventuras, Akumal).",
+    "transportLabel": "Transporte",
+    "transportValue": "Transporte desde y hacia tu hotel incluido",
     "bookThis": "Reservar Este Tour",
     "askWhatsapp": "Hacer una Pregunta (WhatsApp)",
     "related": "Otros Tours Que Te Pueden Gustar"
